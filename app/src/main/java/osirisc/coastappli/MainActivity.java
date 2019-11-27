@@ -79,13 +79,11 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-
+        NavigationUI.setupWithNavController(navigationView, navController);
 
         markers = new ArrayList<LatLng>();
         markers.add(new LatLng(48.3549, -4.5671));
         markers.add(new LatLng(47.3549, -5.671));
-
-
     }
 
     public void createMapLocation(Bundle savedInstanceState){
