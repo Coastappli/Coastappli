@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/nav_log_out"
         android:name="osirisc.coastappli.ui.log_out.LogOutFragment"
-        android:label="@string/menu_log_out"
+        android:label="@string/menu_log_in"
         tools:layout="@layout/fragment_log_out" />
 
     <fragment

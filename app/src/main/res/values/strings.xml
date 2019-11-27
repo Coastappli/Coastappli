@@ -6,6 +6,7 @@
     <string name="nav_header_subtitle">Osirisc</string>
     <string name="nav_header_desc">Navigation header</string>
 
+    <string name="menu_log_in">Connexion</string>
     <string name="menu_carte">Carte</string>
     <string name="menu_historique">Historique</string>
     <string name="menu_badges">Badges</string>
