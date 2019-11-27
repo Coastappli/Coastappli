@@ -15,7 +15,7 @@ public class MapFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ((MainActivity)getActivity()).createMap(savedInstanceState);
+        ((MainActivity)getActivity()).createMapLocation(savedInstanceState);
         View root = inflater.inflate(R.layout.fragment_map, container, false);
         return root;
     }

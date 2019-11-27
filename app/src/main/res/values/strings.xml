@@ -6,6 +6,10 @@
     <string name="nav_header_subtitle">Osirisc</string>
     <string name="nav_header_desc">Navigation header</string>
 
+    <string name="user_location_permission_not_granted">La localisation n\'est pas possible</string>
+    <string name="user_location_permission_explanation">La localisation est impossible</string>
+
+
     <string name="menu_log_in">Connexion</string>
     <string name="menu_carte">Carte</string>
     <string name="menu_historique">Historique</string>
