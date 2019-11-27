@@ -1,5 +1,7 @@
 package osirisc.coastappli;
 
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 
 
@@ -14,6 +16,9 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
+import com.mapbox.geojson.Feature;
+import com.mapbox.geojson.FeatureCollection;
+import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -29,12 +34,25 @@ import com.mapbox.mapboxsdk.maps.SupportMapFragment;
 
 import com.google.android.material.navigation.NavigationView;
 
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory;
+import com.mapbox.mapboxsdk.style.layers.PropertyValue;
+import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
+import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
+
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.mapbox.mapboxsdk.style.expressions.Expression.literal;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.step;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.stop;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.zoom;
+
 
 public class MainActivity extends AppCompatActivity implements PermissionsListener {
 
@@ -69,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
         Mapbox.getInstance(this, "pk.eyJ1IjoicGF1bC1kcm9pZCIsImEiOiJjazNlbnJsMmowMDZrM2VtbmR1MWpjbHpoIn0.GeyDIGrew2ZOKRaYxwtC3w");
 
         // Create supportMapFragment
-        SupportMapFragment mapFragment;
+        final SupportMapFragment mapFragment;
         if (savedInstanceState == null) {
 
         // Create fragment
@@ -86,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
             mapFragment = SupportMapFragment.newInstance(options);
 
         // Add map fragment to parent container
-            transaction.add(R.id.cardview, mapFragment, "com.mapbox.map");
+            transaction.add(R.id.mapView, mapFragment, "com.mapbox.map");
             transaction.commit();
         } else {
             mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentByTag("com.mapbox.map");
@@ -101,13 +119,15 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                         @Override
                         public void onStyleLoaded(@NonNull Style style) {
                             enableLocationComponent(style);
+                            style.addImage("custom_marker.png", BitmapFactory.decodeResource(
+                                    MainActivity.this.getResources(), R.drawable.custom_marker));
+                            addMarkers(style);
                         }
                     });
                 }
             });
         }
         }
-
 
     @SuppressWarnings( {"MissingPermission"})
     private void enableLocationComponent(@NonNull Style loadedMapStyle) {
@@ -128,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
             locationComponent.setCameraMode(CameraMode.TRACKING_GPS);
 
         // Set the LocationComponent's render mode
-            locationComponent.setRenderMode(RenderMode.GPS);
+            locationComponent.setRenderMode(RenderMode.NORMAL);
 
         } else {
             permissionsManager = new PermissionsManager(this);
@@ -143,6 +163,26 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                 enableLocationComponent(style);
             }
         });
+    }
+
+    private void addMarkers(@NonNull Style loadedMapStyle) {
+        List<Feature> features = new ArrayList<>();
+        features.add(Feature.fromGeometry(Point.fromLngLat(-4.5671, 48.3549)));
+
+        /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+        loadedMapStyle.addSource(new GeoJsonSource("pk.eyJ1IjoicGF1bC1kcm9pZCIsImEiOiJjazNlbnJsMmowMDZrM2VtbmR1MWpjbHpoIn0.GeyDIGrew2ZOKRaYxwtC3w", FeatureCollection.fromFeatures(features)));
+
+        /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
+        loadedMapStyle.addLayer(new SymbolLayer("custom_markers", "pk.eyJ1IjoicGF1bC1kcm9pZCIsImEiOiJjazNlbnJsMmowMDZrM2VtbmR1MWpjbHpoIn0.GeyDIGrew2ZOKRaYxwtC3w")
+                .withProperties(
+                        PropertyFactory.iconAllowOverlap(true),
+                        PropertyFactory.iconIgnorePlacement(true),
+                        PropertyFactory.iconImage(step(zoom(),literal(""),stop(12,"custom_marker.png"))),
+        // Adjust the second number of the Float array based on the height of your marker image.
+        // This is because the bottom of the marker should be anchored to the coordinate point, rather
+        // than the middle of the marker being the anchor point on the map.
+                        PropertyFactory.iconOffset(new Float[] {0f, -52f})
+                ));
     }
 
     @Override
