@@ -1,10 +1,10 @@
 package osirisc.coastappli;
 
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
 
 
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,7 +35,6 @@ import com.mapbox.mapboxsdk.maps.SupportMapFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory;
-import com.mapbox.mapboxsdk.style.layers.PropertyValue;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 
@@ -54,11 +53,12 @@ import static com.mapbox.mapboxsdk.style.expressions.Expression.stop;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.zoom;
 
 
-public class MainActivity extends AppCompatActivity implements PermissionsListener {
+public class MainActivity extends AppCompatActivity implements PermissionsListener,MapboxMap.OnMapClickListener {
 
     private AppBarConfiguration mAppBarConfiguration;
     private MapboxMap mapBoxMap;
     private PermissionsManager permissionsManager;
+    private ArrayList<LatLng> markers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +77,13 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+
+
+        markers = new ArrayList<LatLng>();
+        markers.add(new LatLng(48.3549, -4.5671));
+        markers.add(new LatLng(47.3549, -5.671));
+
+
     }
 
     public void createMapLocation(Bundle savedInstanceState){
@@ -118,9 +124,12 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                     mapboxMap.setStyle(Style.OUTDOORS, new Style.OnStyleLoaded() {
                         @Override
                         public void onStyleLoaded(@NonNull Style style) {
+                            mapBoxMap.addOnMapClickListener(MainActivity.this);
                             enableLocationComponent(style);
                             style.addImage("custom_marker.png", BitmapFactory.decodeResource(
                                     MainActivity.this.getResources(), R.drawable.custom_marker));
+                            style.addImage("custom_marker_small.png", BitmapFactory.decodeResource(
+                                    MainActivity.this.getResources(), R.drawable.custom_marker_small));
                             addMarkers(style);
                         }
                     });
@@ -160,15 +169,24 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
         mapBoxMap.setStyle(Style.OUTDOORS, new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
+                mapBoxMap.addOnMapClickListener(MainActivity.this);
                 enableLocationComponent(style);
+                style.addImage("custom_marker.png", BitmapFactory.decodeResource(
+                        MainActivity.this.getResources(), R.drawable.custom_marker));
+                style.addImage("custom_marker_small.png", BitmapFactory.decodeResource(
+                        MainActivity.this.getResources(), R.drawable.custom_marker_small));
+                addMarkers(style);
             }
         });
     }
 
     private void addMarkers(@NonNull Style loadedMapStyle) {
-        List<Feature> features = new ArrayList<>();
-        features.add(Feature.fromGeometry(Point.fromLngLat(-4.5671, 48.3549)));
 
+        List<Feature> features = new ArrayList<>();
+        for (int i = 0; i < markers.size(); ++i){
+            features.add(Feature.fromGeometry(Point.fromLngLat(markers.get(i).getLongitude(), markers.get(i).getLatitude())));
+
+        }
         /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
         loadedMapStyle.addSource(new GeoJsonSource("pk.eyJ1IjoicGF1bC1kcm9pZCIsImEiOiJjazNlbnJsMmowMDZrM2VtbmR1MWpjbHpoIn0.GeyDIGrew2ZOKRaYxwtC3w", FeatureCollection.fromFeatures(features)));
 
@@ -177,11 +195,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                 .withProperties(
                         PropertyFactory.iconAllowOverlap(true),
                         PropertyFactory.iconIgnorePlacement(true),
-                        PropertyFactory.iconImage(step(zoom(),literal(""),stop(12,"custom_marker.png"))),
-        // Adjust the second number of the Float array based on the height of your marker image.
-        // This is because the bottom of the marker should be anchored to the coordinate point, rather
-        // than the middle of the marker being the anchor point on the map.
-                        PropertyFactory.iconOffset(new Float[] {0f, -52f})
+                        PropertyFactory.iconImage(step(zoom(),literal("custom_marker_small.png"),stop(14,"custom_marker.png")))
                 ));
     }
 
@@ -214,5 +228,17 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onMapClick(@NonNull LatLng point) {
+        Double Latitude = point.getLatitude();
+        Double Longitude = point.getLongitude();
+        for (int i = 0; i < markers.size(); ++i){
+            if (markers.get(i).getLatitude() >= Latitude-0.001 && markers.get(i).getLatitude() <= Latitude+0.001 && markers.get(i).getLongitude() >= Longitude-0.001 && markers.get(i).getLongitude() <= Longitude+0.001){
+                Toast.makeText(this, R.string.user_location_permission_not_granted, Toast.LENGTH_LONG).show();
+            }
+        }
+        return true;
     }
 }
