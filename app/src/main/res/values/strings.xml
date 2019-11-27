@@ -17,4 +17,8 @@
     <string name="menu_manage">Paramètres</string>
     <string name="menu_log_out">Déconnexion</string>
     <string name="menu_profile">Profil</string>
+
+    <string name="tab_text_1">Informations</string>
+    <string name="tab_text_2">Suivi</string>
+    <string name="tab_text_3">Indicateurs</string>
 </resources>

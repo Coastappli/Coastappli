@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import osirisc.coastappli.MainActivity;
+import osirisc.coastappli.PlaceMainActivity;
 import osirisc.coastappli.R;
+import android.content.Intent;
 
 public class MapFragment extends Fragment implements View.OnClickListener {
 
@@ -25,7 +27,9 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     }
     @Override
     public void onClick(View v) {
-        ((MainActivity)getActivity()).centerMapOnMyLocation();
+        //((MainActivity)getActivity()).centerMapOnMyLocation();
+        Intent myIntent= new Intent(this.getContext(), PlaceMainActivity.class);
+        MapFragment.this.startActivity(myIntent);
 
     }
 }
