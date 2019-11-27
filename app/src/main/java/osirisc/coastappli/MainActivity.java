@@ -1,10 +1,9 @@
 package osirisc.coastappli;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
-
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -47,6 +46,8 @@ import androidx.appcompat.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
+import osirisc.coastappli.ui.map.MapFragment;
+
 import static com.mapbox.mapboxsdk.style.expressions.Expression.literal;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.step;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.stop;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -236,8 +238,8 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
         Double Longitude = point.getLongitude();
         for (int i = 0; i < markers.size(); ++i){
             if (markers.get(i).getLatitude() >= Latitude-0.001 && markers.get(i).getLatitude() <= Latitude+0.001 && markers.get(i).getLongitude() >= Longitude-0.001 && markers.get(i).getLongitude() <= Longitude+0.001){
-                Toast.makeText(this, R.string.user_location_permission_not_granted, Toast.LENGTH_LONG).show();
-            }
+                Intent myIntent= new Intent(this, PlaceMainActivity.class);
+                MainActivity.this.startActivity(myIntent);            }
         }
         return true;
     }

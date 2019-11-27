@@ -27,9 +27,6 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     }
     @Override
     public void onClick(View v) {
-        //((MainActivity)getActivity()).centerMapOnMyLocation();
-        Intent myIntent= new Intent(this.getContext(), PlaceMainActivity.class);
-        MapFragment.this.startActivity(myIntent);
-
+        ((MainActivity)getActivity()).centerMapOnMyLocation();
     }
 }
