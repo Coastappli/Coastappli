@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        /*
+
         // Mapbox access token is configured here. This needs to be called either in your application
         // object or in the same activity which contains the mapview.
         Mapbox.getInstance(this, "pk.eyJ1IjoicGF1bC1kcm9pZCIsImEiOiJjazNlbnJsMmowMDZrM2VtbmR1MWpjbHpoIn0.GeyDIGrew2ZOKRaYxwtC3w");
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             mapFragment = SupportMapFragment.newInstance(options);
 
         // Add map fragment to parent container
-            transaction.add(R.id.container, mapFragment, "com.mapbox.map");
+            transaction.add(R.id.cardview, mapFragment, "com.mapbox.map");
             transaction.commit();
         } else {
             mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentByTag("com.mapbox.map");
@@ -94,19 +94,19 @@ public class MainActivity extends AppCompatActivity {
             mapFragment.getMapAsync(new OnMapReadyCallback() {
                 @Override
                 public void onMapReady(@NonNull MapboxMap mapboxMap) {
-                    mapboxMap.setStyle(Style.SATELLITE, new Style.OnStyleLoaded() {
+                    mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
                         @Override
                         public void onStyleLoaded(@NonNull Style style) {
 
         // Map is set up and the style has loaded. Now you can add data or make other map adjustments
 
-
                     }
                 });
             }
         });
-    }*/
     }
+    }
+
 
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
