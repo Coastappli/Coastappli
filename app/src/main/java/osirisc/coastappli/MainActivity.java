@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
 
+
+    }
+
+    public void createMap(Bundle savedInstanceState){
         // Mapbox access token is configured here. This needs to be called either in your application
         // object or in the same activity which contains the mapview.
         Mapbox.getInstance(this, "pk.eyJ1IjoicGF1bC1kcm9pZCIsImEiOiJjazNlbnJsMmowMDZrM2VtbmR1MWpjbHpoIn0.GeyDIGrew2ZOKRaYxwtC3w");
@@ -70,20 +74,20 @@ public class MainActivity extends AppCompatActivity {
         SupportMapFragment mapFragment;
         if (savedInstanceState == null) {
 
-        // Create fragment
+            // Create fragment
             final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        // Build mapboxMap
+            // Build mapboxMap
             MapboxMapOptions options = MapboxMapOptions.createFromAttributes(this, null);
             options.camera(new CameraPosition.Builder()
                     .target(new LatLng(-52.6885, -70.1395))
                     .zoom(9)
                     .build());
 
-        // Create map fragment
+            // Create map fragment
             mapFragment = SupportMapFragment.newInstance(options);
 
-        // Add map fragment to parent container
+            // Add map fragment to parent container
             transaction.add(R.id.cardview, mapFragment, "com.mapbox.map");
             transaction.commit();
         } else {
@@ -98,15 +102,14 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onStyleLoaded(@NonNull Style style) {
 
-        // Map is set up and the style has loaded. Now you can add data or make other map adjustments
+                            // Map is set up and the style has loaded. Now you can add data or make other map adjustments
 
-                    }
-                });
-            }
-        });
+                        }
+                    });
+                }
+            });
+        }
     }
-    }
-
 
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
