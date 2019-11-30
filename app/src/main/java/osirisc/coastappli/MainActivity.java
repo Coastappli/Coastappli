@@ -42,11 +42,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
-import osirisc.coastappli.ui.map.MapFragment;
 
 import static com.mapbox.mapboxsdk.style.expressions.Expression.literal;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.step;
@@ -60,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
     private MapboxMap mapBoxMap;
     private PermissionsManager permissionsManager;
     private ArrayList<LatLng> markers;
+    private Mapbox mapbox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -232,10 +230,14 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
 
     @Override
     public boolean onMapClick(@NonNull LatLng point) {
+        int zoom = (int)mapBoxMap.getCameraPosition().zoom;
         Double Latitude = point.getLatitude();
         Double Longitude = point.getLongitude();
+        //Depending on the zoom, we adapt the error the user can have when clicking on the marker
+        //---PEUT-ÊTRE AJUSTER UN PEU LA LISTE DES ERREURS---
+        Double[] errorList = new Double[]{1.,1.,1.,1.,0.1,0.1,0.1,0.01,0.01,0.01,0.01,0.001,0.001,0.001,0.001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.00001};
         for (int i = 0; i < markers.size(); ++i){
-            if (markers.get(i).getLatitude() >= Latitude-0.001 && markers.get(i).getLatitude() <= Latitude+0.001 && markers.get(i).getLongitude() >= Longitude-0.001 && markers.get(i).getLongitude() <= Longitude+0.001){
+            if (markers.get(i).getLatitude() >= Latitude-errorList[zoom] && markers.get(i).getLatitude() <= Latitude+errorList[zoom] && markers.get(i).getLongitude() >= Longitude-errorList[zoom] && markers.get(i).getLongitude() <= Longitude+errorList[zoom]){
                 Intent myIntent= new Intent(this, PlaceMainActivity.class);
                 MainActivity.this.startActivity(myIntent);            }
         }
