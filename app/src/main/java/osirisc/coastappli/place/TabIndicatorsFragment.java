@@ -15,6 +15,9 @@ import osirisc.coastappli.MainActivity;
 import osirisc.coastappli.MethodMainActivity;
 import osirisc.coastappli.R;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 public class TabIndicatorsFragment extends Fragment {
 
     private ScrollView scrollViewErosion;
@@ -33,12 +36,12 @@ public class TabIndicatorsFragment extends Fragment {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.radioButtonErosion){
-                    scrollViewErosion.setVisibility(root.VISIBLE);
-                    scrollViewSubmersion.setVisibility(root.GONE);
+                    scrollViewErosion.setVisibility(VISIBLE);
+                    scrollViewSubmersion.setVisibility(GONE);
                 }
                 if (checkedId == R.id.radioButtonSubmersion){
-                    scrollViewErosion.setVisibility(root.GONE);
-                    scrollViewSubmersion.setVisibility(root.VISIBLE);
+                    scrollViewErosion.setVisibility(GONE);
+                    scrollViewSubmersion.setVisibility(VISIBLE);
                 }
             }
         });
