@@ -54,7 +54,6 @@ public class MethodMainActivity extends AppCompatActivity {
 
     public void validate(View view){
         //Save the data in the Database
-        Intent myIntent= new Intent(this, PlaceMainActivity.class);
-        MethodMainActivity.this.startActivity(myIntent);
+        MethodMainActivity.this.finish();
     }
 }
