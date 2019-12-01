@@ -21,6 +21,8 @@
     <string name="tab_information_name">Informations</string>
     <string name="tab_trace_name">Suivi</string>
     <string name="tab_indicators_name">Indicateurs</string>
+    <string name="tab_input_name">Saisie</string>
+    <string name="tab_method_name">Méthode</string>
 
     <string name="news">Actualités</string>
     <string name="tides">Marées</string>
@@ -28,5 +30,8 @@
 
     <string name="erosion">Erosion</string>
     <string name="submersion">Submersion</string>
+
+    <string name="date">Date</string>
+    <string name="distance">Distance</string>
 
 </resources>

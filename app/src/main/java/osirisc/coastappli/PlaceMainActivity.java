@@ -1,6 +1,7 @@
 package osirisc.coastappli;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import osirisc.coastappli.place.SectionsPagerAdapter;
+import osirisc.coastappli.place.TabIndicatorsFragment;
 
 public class PlaceMainActivity extends AppCompatActivity {
     @Override
@@ -26,5 +28,10 @@ public class PlaceMainActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
+    }
+
+    public void distanceFunction(View view){
+        Intent myIntent= new Intent(this, MethodMainActivity.class);
+        PlaceMainActivity.this.startActivity(myIntent);
     }
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioGroupErosionSubmersion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -16,15 +16,16 @@
         android:paddingEnd="20dp">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButtonErosion"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingRight="70dp"
             android:paddingLeft="10dp"
+            android:checked="true"
             android:text="@string/erosion" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButtonSubmersion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
@@ -32,7 +33,8 @@
     </RadioGroup>
 
     <ScrollView
-        app:layout_constraintBottom_toBottomOf="@id/radioGroup"
+        android:id="@+id/scrollViewErosion"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupErosionSubmersion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -44,7 +46,16 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal" />
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:onClick="distanceFunction"
+                    android:text="@string/distance" />
+            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
@@ -60,20 +71,28 @@
     </ScrollView>
 
     <ScrollView
+        android:id="@+id/scrollViewSubmersion"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupErosionSubmersion"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
+            android:orientation="vertical">
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal" />
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello, I'm scrollViewSubmersion" />
+            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
