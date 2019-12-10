@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -45,6 +46,9 @@ import androidx.appcompat.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
+import osirisc.coastappli.Database.DatabaseAssistant;
+import osirisc.coastappli.Database.Marker;
+
 import static com.mapbox.mapboxsdk.style.expressions.Expression.literal;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.step;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.stop;
@@ -56,8 +60,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
     private AppBarConfiguration mAppBarConfiguration;
     private MapboxMap mapBoxMap;
     private PermissionsManager permissionsManager;
-    private ArrayList<LatLng> markers;
-    private Mapbox mapbox;
+    private DatabaseAssistant databaseAssistant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +82,16 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        markers = new ArrayList<LatLng>();
-        markers.add(new LatLng(48.3549, -4.5671));
-        markers.add(new LatLng(47.3549, -5.671));
+
+        //Place to add the markers
+        databaseAssistant = new DatabaseAssistant(this);
+        databaseAssistant.deleteAllMarker();
+        Marker marker = new Marker(48.3549,-4.5671,  "Le Dellec", "Plouzané");
+        Marker marker1 = new Marker(47.3549, -5.671, "Test2", "Test2", "Test2", "Test2", 0);
+        databaseAssistant.addMarker(marker);
+        databaseAssistant.addMarker(marker1);
+        //databaseAssistant.deleteMarker(-4.5671, 48.3549);
+        //databaseAssistant.deleteMarker(47.3549, -5.671);
     }
 
     public void createMapLocation(Bundle savedInstanceState){
@@ -128,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                                     MainActivity.this.getResources(), R.drawable.custom_marker));
                             style.addImage("custom_marker_small.png", BitmapFactory.decodeResource(
                                     MainActivity.this.getResources(), R.drawable.custom_marker_small));
-                            addMarkers(style);
+                            displayMarkers(style);
                         }
                     });
                 }
@@ -173,16 +183,18 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                         MainActivity.this.getResources(), R.drawable.custom_marker));
                 style.addImage("custom_marker_small.png", BitmapFactory.decodeResource(
                         MainActivity.this.getResources(), R.drawable.custom_marker_small));
-                addMarkers(style);
+                displayMarkers(style);
             }
         });
     }
 
-    private void addMarkers(@NonNull Style loadedMapStyle) {
+    private void displayMarkers(@NonNull Style loadedMapStyle) {
 
         List<Feature> features = new ArrayList<>();
-        for (int i = 0; i < markers.size(); ++i){
-            features.add(Feature.fromGeometry(Point.fromLngLat(markers.get(i).getLongitude(), markers.get(i).getLatitude())));
+        ArrayList<Marker> listMarker = databaseAssistant.loadMarker();
+        Log.i("ListMarker",listMarker.toString());
+        for (int i = 0; i < listMarker.size(); ++i){
+            features.add(Feature.fromGeometry(Point.fromLngLat(listMarker.get(i).getLongitude(), listMarker.get(i).getLatitude())));
 
         }
         /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
@@ -231,15 +243,23 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
     @Override
     public boolean onMapClick(@NonNull LatLng point) {
         int zoom = (int)mapBoxMap.getCameraPosition().zoom;
+        ArrayList<Marker> listMarker = databaseAssistant.loadMarker();
         Double Latitude = point.getLatitude();
         Double Longitude = point.getLongitude();
         //Depending on the zoom, we adapt the error the user can have when clicking on the marker
         //---PEUT-ÊTRE AJUSTER UN PEU LA LISTE DES ERREURS---
         Double[] errorList = new Double[]{1.,1.,1.,1.,0.1,0.1,0.1,0.01,0.01,0.01,0.01,0.001,0.001,0.001,0.001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.00001};
-        for (int i = 0; i < markers.size(); ++i){
-            if (markers.get(i).getLatitude() >= Latitude-errorList[zoom] && markers.get(i).getLatitude() <= Latitude+errorList[zoom] && markers.get(i).getLongitude() >= Longitude-errorList[zoom] && markers.get(i).getLongitude() <= Longitude+errorList[zoom]){
+        for (int i = 0; i < listMarker.size(); ++i){
+            if (listMarker.get(i).getLatitude() >= Latitude-errorList[zoom] && listMarker.get(i).getLatitude() <= Latitude+errorList[zoom]
+                    && listMarker.get(i).getLongitude() >= Longitude-errorList[zoom] && listMarker.get(i).getLongitude() <= Longitude+errorList[zoom]){
+                Marker marker = databaseAssistant.findMarker(listMarker.get(i).getLatitude(), listMarker.get(i).getLongitude());
                 Intent myIntent= new Intent(this, PlaceMainActivity.class);
-                MainActivity.this.startActivity(myIntent);            }
+                myIntent.putExtra("nameBeach", marker.getNameBeach());
+                myIntent.putExtra("nameTown", marker.getNameTown());
+                myIntent.putExtra("coastType", marker.getCoastType());
+                myIntent.putExtra("INEC", marker.getINEC());
+                myIntent.putExtra("erosionDistanceMesure", marker.getErosionDistanceMesure());
+                MainActivity.this.startActivity(myIntent);}
         }
         return true;
     }

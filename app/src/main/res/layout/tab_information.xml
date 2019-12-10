@@ -24,7 +24,7 @@
                     android:id="@+id/textViewNamePlace"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingEnd="20dp"
+                    android:paddingEnd="40dp"
                     android:gravity="center"
                     android:text="Nom du lieu selectionné" />
 
@@ -38,38 +38,85 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewCoastTypeInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/coastType"
+                    android:paddingEnd="20dp" />
+
+                <TextView
+                    android:id="@+id/textViewCoastType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewINECInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/INEC"
+                    android:paddingEnd="20dp"/>
+
+                <TextView
+                    android:id="@+id/textViewINEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewNewsInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/news"
+                    android:paddingEnd="20dp"/>
 
                 <TextView
                     android:id="@+id/textViewNews"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/news" />
+                    android:text="Not implement yet" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/textViewTydesInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tides" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                    android:text="@string/tides"
+                    android:paddingEnd="20dp" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/textViewTydes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/types" />
+                    android:text="Not implement yet" />
             </TableRow>
+
         </TableLayout>
     </ScrollView>
 

@@ -5,14 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import osirisc.coastappli.MainActivity;
-import osirisc.coastappli.MethodMainActivity;
+import osirisc.coastappli.PlaceMainActivity;
 import osirisc.coastappli.R;
 
 import static android.view.View.GONE;
@@ -45,6 +45,10 @@ public class TabIndicatorsFragment extends Fragment {
                 }
             }
         });
+        if (((PlaceMainActivity)getActivity()).getErosionDistanceMesure()== 0){
+            Button distanceButton = root.findViewById(R.id.distanceButton);
+            distanceButton.setVisibility(GONE);
+        }
         return root;
     }
 

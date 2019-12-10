@@ -11,9 +11,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import osirisc.coastappli.MainActivity;
-import osirisc.coastappli.PlaceMainActivity;
 import osirisc.coastappli.R;
-import android.content.Intent;
 
 public class MapFragment extends Fragment implements View.OnClickListener {
 

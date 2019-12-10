@@ -26,7 +26,9 @@
 
     <string name="news">Actualités</string>
     <string name="tides">Marées</string>
-    <string name="types">Types de côte et vulnérabilité</string>
+    <string name="coastType">Types de côte</string>
+    <string name="INEC">INEC</string>
+
 
     <string name="erosion">Erosion</string>
     <string name="submersion">Submersion</string>
