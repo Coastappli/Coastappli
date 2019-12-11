@@ -19,7 +19,7 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE Marker (_id INTEGER PRIMARY KEY AUTOINCREMENT, latitude DOUBLE, longitude DOUBLE, namebeach TEXT, nameTown TEXT, coastType TEXT, INEC TEXT, erosionDistanceMesure BOOL);");
-        db.execSQL("CREATE TABLE MesureErosionDistance (markerLatitude DOUBLE PRIMARY KEY, markerLongitude DOUBLE, date DATE, time DATE, user TEXT, note TEXT);");
+        db.execSQL("CREATE TABLE MesureErosionDistance (_id INTEGER PRIMARY KEY AUTOINCREMENT, markerLatitude DOUBLE, markerLongitude DOUBLE, date DATE, time DATE, user TEXT, note TEXT);");
         Marker marker = new Marker(48.3549,-4.5671,  "Le Dellec", "Plouzané", "Type de côte", "INEC", 1);
         Marker marker1 = new Marker(47.3549, -5.671, "Test2", "Test2", "Test2", "Test2", 0);
         addInitMarker(marker, db);
@@ -179,18 +179,18 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
     }
 
     public MesureErosionDistance findMesureErosionDistance(double latitude, double longitude){
-        String query = "Select*FROM MesureErosionDistance WHERE markerLatitude =" + "'" + latitude +  "'" + "AND markerLongitude =" + "'" + longitude +  "' ORDER BY Time";
+        String query = "Select*FROM MesureErosionDistance WHERE markerLatitude =" + "'" + latitude +  "'" + "AND markerLongitude =" + "'" + longitude +  "' ORDER BY _id DESC";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         MesureErosionDistance mesure = new MesureErosionDistance();
         if (cursor.moveToFirst()) {
             cursor.moveToFirst();
-            mesure.setMarkerLatitude(Double.parseDouble(cursor.getString(0)));
-            mesure.setMarkerLongitude(Double.parseDouble(cursor.getString(1)));
-            mesure.setDate(cursor.getString(2));
-            mesure.setTime(cursor.getString(3));
-            mesure.setUser(cursor.getString(4));
-            mesure.setNotes(cursor.getString(5));
+            mesure.setMarkerLatitude(Double.parseDouble(cursor.getString(1)));
+            mesure.setMarkerLongitude(Double.parseDouble(cursor.getString(2)));
+            mesure.setDate(cursor.getString(3));
+            mesure.setTime(cursor.getString(4));
+            mesure.setUser(cursor.getString(5));
+            mesure.setNotes(cursor.getString(6));
             cursor.close();
         } else {
             mesure = null;

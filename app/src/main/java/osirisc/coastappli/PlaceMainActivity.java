@@ -68,19 +68,14 @@ public class PlaceMainActivity extends AppCompatActivity {
     }
 
     public void distanceFunction(View view){
-        Intent myPlaceIntent= new Intent(this, PlaceMainActivity.class);
-        myPlaceIntent.putExtra("markerLatitude", markerLatitude);
-        myPlaceIntent.putExtra("markerLongitude", markerLongitude);
-        myPlaceIntent.putExtra("nameBeach", nameBeach);
-        myPlaceIntent.putExtra("nameTown", nameTown);
-        myPlaceIntent.putExtra("coastType", coastType);
-        myPlaceIntent.putExtra("INEC", INEC);
-        myPlaceIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
-        PlaceMainActivity.this.startActivity(myPlaceIntent);
-
         Intent myIntent= new Intent(this, MethodMainActivity.class);
         myIntent.putExtra("markerLatitude", markerLatitude);
         myIntent.putExtra("markerLongitude", markerLongitude);
+        myIntent.putExtra("nameBeach", nameBeach);
+        myIntent.putExtra("nameTown", nameTown);
+        myIntent.putExtra("coastType", coastType);
+        myIntent.putExtra("INEC", INEC);
+        myIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
         PlaceMainActivity.this.startActivity(myIntent);
         finish();
     }

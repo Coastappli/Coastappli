@@ -31,6 +31,12 @@ import static android.view.View.VISIBLE;
 public class MethodMainActivity extends AppCompatActivity {
     private Double markerLatitude;
     private Double markerLongitude;
+    private String nameBeach;
+    private String nameTown;
+    private String coastType;
+    private String INEC;
+    private int erosionDistanceMesureBool;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +51,11 @@ public class MethodMainActivity extends AppCompatActivity {
         {
             markerLatitude = extras.getDouble("markerLatitude");
             markerLongitude = extras.getDouble("markerLongitude");
+            nameBeach = extras.getString("nameBeach");
+            nameTown = extras.getString("nameTown");
+            coastType = extras.getString("coastType");
+            INEC = extras.getString("INEC");
+            erosionDistanceMesureBool = extras.getInt("erosionDistanceMesureBool");
         }
     }
 
@@ -87,5 +98,15 @@ public class MethodMainActivity extends AppCompatActivity {
         Mesure mesure1 = databaseAssistant.findMesureErosionDistance(mesure.getMarkerLatitude(), mesure.getMarkerLongitude());
         Log.e("Date", mesure1.getDate());
         MethodMainActivity.this.finish();
+
+        Intent myPlaceIntent= new Intent(this, PlaceMainActivity.class);
+        myPlaceIntent.putExtra("markerLatitude", markerLatitude);
+        myPlaceIntent.putExtra("markerLongitude", markerLongitude);
+        myPlaceIntent.putExtra("nameBeach", nameBeach);
+        myPlaceIntent.putExtra("nameTown", nameTown);
+        myPlaceIntent.putExtra("coastType", coastType);
+        myPlaceIntent.putExtra("INEC", INEC);
+        myPlaceIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
+        MethodMainActivity.this.startActivity(myPlaceIntent);
     }
 }
