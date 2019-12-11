@@ -82,16 +82,8 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
         //Place to add the markers
         databaseAssistant = new DatabaseAssistant(this);
-        databaseAssistant.deleteAllMarker();
-        Marker marker = new Marker(48.3549,-4.5671,  "Le Dellec", "Plouzané");
-        Marker marker1 = new Marker(47.3549, -5.671, "Test2", "Test2", "Test2", "Test2", 0);
-        databaseAssistant.addMarker(marker);
-        databaseAssistant.addMarker(marker1);
-        //databaseAssistant.deleteMarker(-4.5671, 48.3549);
-        //databaseAssistant.deleteMarker(47.3549, -5.671);
     }
 
     public void createMapLocation(Bundle savedInstanceState){
@@ -254,11 +246,13 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                     && listMarker.get(i).getLongitude() >= Longitude-errorList[zoom] && listMarker.get(i).getLongitude() <= Longitude+errorList[zoom]){
                 Marker marker = databaseAssistant.findMarker(listMarker.get(i).getLatitude(), listMarker.get(i).getLongitude());
                 Intent myIntent= new Intent(this, PlaceMainActivity.class);
+                myIntent.putExtra("markerLatitude", marker.getLatitude());
+                myIntent.putExtra("markerLongitude", marker.getLongitude());
                 myIntent.putExtra("nameBeach", marker.getNameBeach());
                 myIntent.putExtra("nameTown", marker.getNameTown());
                 myIntent.putExtra("coastType", marker.getCoastType());
                 myIntent.putExtra("INEC", marker.getINEC());
-                myIntent.putExtra("erosionDistanceMesure", marker.getErosionDistanceMesure());
+                myIntent.putExtra("erosionDistanceMesureBool", marker.getErosionDistanceMesureBool());
                 MainActivity.this.startActivity(myIntent);}
         }
         return true;

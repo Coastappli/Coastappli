@@ -35,7 +35,7 @@ public class Marker {
 
     public String getINEC() { return INEC; }
 
-    public int getErosionDistanceMesure() { return erosionDistanceMesure; }
+    public int getErosionDistanceMesureBool() { return erosionDistanceMesure; }
 
     public void setErosionDistanceMesure(int erosionDistanceMesure) { this.erosionDistanceMesure = erosionDistanceMesure; }
 

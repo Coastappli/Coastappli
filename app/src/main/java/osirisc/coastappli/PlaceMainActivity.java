@@ -21,12 +21,17 @@ import osirisc.coastappli.place.SectionsPagerAdapter;
 import osirisc.coastappli.place.TabIndicatorsFragment;
 
 public class PlaceMainActivity extends AppCompatActivity {
-
+    private Double markerLatitude;
+    private Double markerLongitude;
     private String nameBeach;
     private String nameTown;
     private String coastType;
     private String INEC;
     private int erosionDistanceMesure;
+
+    public Double getMarkerLatitude() { return markerLatitude;    }
+
+    public Double getMarkerLongitude() {  return markerLongitude;    }
 
     public int getErosionDistanceMesure() {
         return erosionDistanceMesure;
@@ -59,17 +64,20 @@ public class PlaceMainActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras !=null)
         {
+            markerLatitude = extras.getDouble("markerLatitude");
+            markerLongitude = extras.getDouble("markerLongitude");
             nameBeach = extras.getString("nameBeach");
             nameTown = extras.getString("nameTown");
             coastType = extras.getString("coastType");
             INEC = extras.getString("INEC");
-            erosionDistanceMesure = extras.getInt("erosionDistanceMesure");
-
+            erosionDistanceMesure = extras.getInt("erosionDistanceMesureBool");
         }
     }
 
     public void distanceFunction(View view){
         Intent myIntent= new Intent(this, MethodMainActivity.class);
+        myIntent.putExtra("markerLatitude", markerLatitude);
+        myIntent.putExtra("markerLongitude", markerLongitude);
         PlaceMainActivity.this.startActivity(myIntent);
     }
 }

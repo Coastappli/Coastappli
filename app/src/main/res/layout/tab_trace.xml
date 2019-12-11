@@ -23,17 +23,28 @@
 
                 <TableRow
                     android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/textViewMesureErosionDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mesureErosionDistance" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textViewDate11"
+                        android:id="@+id/textViewDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
                         android:text="@string/date" />
 
                     <TextView
-                        android:id="@+id/textViewDateFill11"
+                        android:id="@+id/textViewDateFill"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"/>
@@ -45,14 +56,14 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textViewMesure11"
+                        android:id="@+id/textViewUser"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="Mesure 1:" />
+                        android:text="@string/user" />
 
                     <TextView
-                        android:id="@+id/textViewMesureFill11"
+                        android:id="@+id/textViewUserFill"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp" />
@@ -64,14 +75,14 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textViewMesure21"
+                        android:id="@+id/textViewMesure"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="Mesure 2 :" />
+                        android:text="@string/mesure" />
 
                     <TextView
-                        android:id="@+id/textViewMesureFill21"
+                        android:id="@+id/textViewMesureFill"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="5dp" />
@@ -83,14 +94,14 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textViewMesure31"
+                        android:id="@+id/textViewNote"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="Mesure 3:" />
+                        android:text="@string/notes" />
 
                     <TextView
-                        android:id="@+id/textViewMesureFill31"
+                        android:id="@+id/textViewNoteFill"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp" />

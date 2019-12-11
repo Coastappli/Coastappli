@@ -33,8 +33,13 @@
     <string name="erosion">Erosion</string>
     <string name="submersion">Submersion</string>
 
-    <string name="date">Date</string>
+    <string name="date">Date et heure</string>
     <string name="distance">Distance</string>
     <string name="take_photo">Prendre la photo</string>
     <string name="validate">Valider</string>
+    <string name="mesureErosionDistance">Mesure Erosion Distance</string>
+    <string name="user">Utilisateur</string>
+    <string name="mesure">Mesure</string>
+
+    <string name="notes">Remarques</string>
 </resources>

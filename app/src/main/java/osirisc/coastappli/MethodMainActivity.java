@@ -5,20 +5,32 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import osirisc.coastappli.Database.DatabaseAssistant;
+import osirisc.coastappli.Database.Mesure;
+import osirisc.coastappli.Database.MesureErosionDistance;
 import osirisc.coastappli.method.SectionsPagerAdapterMethod;
 
 import static android.view.View.VISIBLE;
 
 public class MethodMainActivity extends AppCompatActivity {
+    private Double markerLatitude;
+    private Double markerLongitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +40,12 @@ public class MethodMainActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapterMethod);
         TabLayout tabs = findViewById(R.id.tabs_method);
         tabs.setupWithViewPager(viewPager);
+        Bundle extras = getIntent().getExtras();
+        if(extras !=null)
+        {
+            markerLatitude = extras.getDouble("markerLatitude");
+            markerLongitude = extras.getDouble("markerLongitude");
+        }
     }
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -37,6 +55,8 @@ public class MethodMainActivity extends AppCompatActivity {
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             Button buttonValidate = findViewById(R.id.buttonValidate);
+            LinearLayout noteLayout = findViewById(R.id.NoteLayout);
+            noteLayout.setVisibility(VISIBLE);
             buttonValidate.setVisibility(VISIBLE);
         }
     }
@@ -53,7 +73,19 @@ public class MethodMainActivity extends AppCompatActivity {
     }
 
     public void validate(View view){
-        //Save the data in the Database
+        MesureErosionDistance mesure = new MesureErosionDistance();
+        mesure.setMarkerLatitude(markerLatitude);
+        mesure.setMarkerLongitude(markerLongitude);
+        mesure.setDate(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
+        mesure.setTime(new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date()));
+        TextView noteText = findViewById(R.id.editTextNote);
+        mesure.setNotes((noteText.getText()).toString());
+        mesure.setUser("");
+        //mesure.setPhoto();
+        DatabaseAssistant databaseAssistant = new DatabaseAssistant(this);
+        databaseAssistant.addMesureErosionDistance(mesure);
+        Mesure mesure1 = databaseAssistant.findMesureErosionDistance(mesure.getMarkerLatitude(), mesure.getMarkerLongitude());
+        Log.e("Date", mesure1.getDate());
         MethodMainActivity.this.finish();
     }
 }
