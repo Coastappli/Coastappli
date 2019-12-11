@@ -4,21 +4,14 @@ package osirisc.coastappli;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
-import osirisc.coastappli.Database.Marker;
 import osirisc.coastappli.place.SectionsPagerAdapter;
-import osirisc.coastappli.place.TabIndicatorsFragment;
 
 public class PlaceMainActivity extends AppCompatActivity {
     private Double markerLatitude;
@@ -27,14 +20,14 @@ public class PlaceMainActivity extends AppCompatActivity {
     private String nameTown;
     private String coastType;
     private String INEC;
-    private int erosionDistanceMesure;
+    private int erosionDistanceMesureBool;
 
     public Double getMarkerLatitude() { return markerLatitude;    }
 
     public Double getMarkerLongitude() {  return markerLongitude;    }
 
-    public int getErosionDistanceMesure() {
-        return erosionDistanceMesure;
+    public int getErosionDistanceMesureBool() {
+        return erosionDistanceMesureBool;
     }
 
     public String getINEC() {
@@ -70,14 +63,25 @@ public class PlaceMainActivity extends AppCompatActivity {
             nameTown = extras.getString("nameTown");
             coastType = extras.getString("coastType");
             INEC = extras.getString("INEC");
-            erosionDistanceMesure = extras.getInt("erosionDistanceMesureBool");
+            erosionDistanceMesureBool = extras.getInt("erosionDistanceMesureBool");
         }
     }
 
     public void distanceFunction(View view){
+        Intent myPlaceIntent= new Intent(this, PlaceMainActivity.class);
+        myPlaceIntent.putExtra("markerLatitude", markerLatitude);
+        myPlaceIntent.putExtra("markerLongitude", markerLongitude);
+        myPlaceIntent.putExtra("nameBeach", nameBeach);
+        myPlaceIntent.putExtra("nameTown", nameTown);
+        myPlaceIntent.putExtra("coastType", coastType);
+        myPlaceIntent.putExtra("INEC", INEC);
+        myPlaceIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
+        PlaceMainActivity.this.startActivity(myPlaceIntent);
+
         Intent myIntent= new Intent(this, MethodMainActivity.class);
         myIntent.putExtra("markerLatitude", markerLatitude);
         myIntent.putExtra("markerLongitude", markerLongitude);
         PlaceMainActivity.this.startActivity(myIntent);
+        finish();
     }
 }

@@ -1,6 +1,5 @@
 package osirisc.coastappli.place;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +44,7 @@ public class TabIndicatorsFragment extends Fragment {
                 }
             }
         });
-        if (((PlaceMainActivity)getActivity()).getErosionDistanceMesure()== 0){
+        if (((PlaceMainActivity)getActivity()).getErosionDistanceMesureBool()== 0){
             Button distanceButton = root.findViewById(R.id.distanceButton);
             distanceButton.setVisibility(GONE);
         }
