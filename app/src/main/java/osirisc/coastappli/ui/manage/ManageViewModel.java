@@ -10,7 +10,7 @@ public class ManageViewModel extends ViewModel {
 
     public ManageViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is management fragment");
+        mText.setValue("Management fragment is currently not used");
     }
 
     public LiveData<String> getText() {

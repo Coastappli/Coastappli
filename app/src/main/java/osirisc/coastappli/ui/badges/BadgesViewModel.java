@@ -10,7 +10,7 @@ public class BadgesViewModel extends ViewModel {
 
     public BadgesViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is badges fragment");
+        mText.setValue("Badges are currently not used");
     }
 
     public LiveData<String> getText() {
