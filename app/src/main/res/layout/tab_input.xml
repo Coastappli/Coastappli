@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:paddingTop="10dp"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
     android:layout_height="match_parent">
 
     <Button
@@ -8,12 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="dispatchTakePictureIntent"
+        android:background="@drawable/button_background"
+        android:textColor="#FFFFFF"
         android:text="@string/take_photo" />
 
     <ImageView
         android:id="@+id/imageViewPhoto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"/>
 
     <LinearLayout
         android:id="@+id/NoteLayout"
@@ -34,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:lines="3"
             android:ems="10"
             android:inputType="textPersonName" />
     </LinearLayout>
@@ -44,5 +51,7 @@
         android:layout_height="wrap_content"
         android:onClick="validate"
         android:visibility="gone"
+        android:background="@drawable/button_background"
+        android:textColor="#FFFFFF"
         android:text="@string/validate" />
 </LinearLayout>

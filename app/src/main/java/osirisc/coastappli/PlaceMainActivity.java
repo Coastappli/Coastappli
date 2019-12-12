@@ -77,6 +77,6 @@ public class PlaceMainActivity extends AppCompatActivity {
         myIntent.putExtra("INEC", INEC);
         myIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
         PlaceMainActivity.this.startActivity(myIntent);
-        finish();
+        PlaceMainActivity.this.finish();
     }
 }

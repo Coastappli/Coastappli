@@ -35,6 +35,12 @@
 
     <string name="date">Date et heure</string>
     <string name="distance">Distance</string>
+    <string name="surface">Surface</string>
+    <string name="volume">Volume</string>
+    <string name="hauteur">Hauteur d\'eau</string>
+    <string name="migration">Migration dunaire</string>
+    <string name="paquets">Paquets de mer</string>
+
     <string name="take_photo">Prendre la photo</string>
     <string name="validate">Valider</string>
     <string name="mesureErosionDistance">Mesure Erosion Distance</string>
@@ -42,4 +48,12 @@
     <string name="mesure">Mesure</string>
 
     <string name="notes">Remarques</string>
+
+    <string name="erosionDistance">Repère - trait de côte \nVerticale sur borne de repère \nPrise de vue contrainte qualitative \nMesure verticale sur bas d\'estran</string>
+    <string name="erosionSurface">Pas encore implémenté</string>
+    <string name="erosionVolume">Pas encore implémenté</string>
+    <string name="submersionHauteur">Pas encore implémenté</string>
+    <string name="submersionMigration">Pas encore implémenté</string>
+    <string name="submersionPaquets">Pas encore implémenté</string>
+
 </resources>
