@@ -56,4 +56,10 @@
     <string name="submersionMigration">Pas encore implémenté</string>
     <string name="submersionPaquets">Pas encore implémenté</string>
 
+    <string name="methodDistanceTitle">Prise de vue contrainte\nqualitative </string>
+    <string name="methodDistance1">A faire à marée basse\nDurée: 5 minutes</string>
+    <string name="methodDistance2">- Photographie désirée:</string>
+    <string name="methodDistance3">- Position conseillée pour la prise de vue:</string>
+    <string name="methodDistance4">Pour mieux appréhender les évolutions rapides\n dues aux tempêtes, il est pertinent de réaliser\n des prises de vue post-évènement également.</string>
+
 </resources>
