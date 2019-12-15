@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import osirisc.coastappli.Database.DatabaseAssistant;
-import osirisc.coastappli.Database.Mesure;
 import osirisc.coastappli.Database.MesureErosionDistance;
 import osirisc.coastappli.PlaceMainActivity;
 import osirisc.coastappli.R;

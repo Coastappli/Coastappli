@@ -5,8 +5,19 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.util.Log;
 
+import androidx.core.content.ContextCompat;
+
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+
+import osirisc.coastappli.R;
+
+import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
+
 
 public class DatabaseAssistant extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
@@ -18,9 +29,12 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE Marker (_id INTEGER PRIMARY KEY AUTOINCREMENT, latitude DOUBLE, longitude DOUBLE, namebeach TEXT, nameTown TEXT, coastType TEXT, INEC TEXT, erosionDistanceMesure BOOL);");
+        db.execSQL("CREATE TABLE Marker (_id INTEGER PRIMARY KEY AUTOINCREMENT, latitude DOUBLE, longitude DOUBLE, namebeach TEXT, nameTown TEXT, coastType TEXT, INEC TEXT, erosionDistanceMesure BOOL,  photo BLOB);");
         db.execSQL("CREATE TABLE MesureErosionDistance (_id INTEGER PRIMARY KEY AUTOINCREMENT, markerLatitude DOUBLE, markerLongitude DOUBLE, date DATE, time DATE, user TEXT, note TEXT, photo BLOB);");
-        Marker marker = new Marker(48.3549,-4.5671,  "Le Dellec", "Plouzané", "Type de côte", "INEC", 1);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        ((BitmapDrawable)ContextCompat.getDrawable(getApplicationContext(), R.drawable.le_dellec)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        Marker marker = new Marker(48.3549,-4.5671,  "Le Dellec", "Plouzané", "Type de côte", "INEC", 1, byteArray);
         Marker marker1 = new Marker(47.3549, -5.671, "Test2", "Test2", "Test2", "Test2", 0);
         addInitMarker(marker, db);
         addInitMarker(marker1, db);
@@ -54,6 +68,7 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
             marker.setCoastType(cursor.getString(5));
             marker.setINEC(cursor.getString(6));
             marker.setErosionDistanceMesure(Integer.parseInt(cursor.getString(7)));
+            marker.setPhoto(cursor.getBlob(8));
             listMarker.add(marker);
         }
         cursor.close();
@@ -75,6 +90,7 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
             marker.setCoastType(cursor.getString(5));
             marker.setINEC(cursor.getString(6));
             marker.setErosionDistanceMesure(Integer.parseInt(cursor.getString(7)));
+            marker.setPhoto(cursor.getBlob(8));
             cursor.close();
         } else {
             marker = null;
@@ -92,6 +108,7 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
         values.put("coastType", marker.getCoastType());
         values.put("INEC", marker.getINEC());
         values.put("erosionDistanceMesure", marker.getErosionDistanceMesureBool());
+        values.put("photo", marker.getPhoto());
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert("Marker", null, values);
         db.close();
@@ -106,6 +123,7 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
         values.put("coastType", marker.getCoastType());
         values.put("INEC", marker.getINEC());
         values.put("erosionDistanceMesure", marker.getErosionDistanceMesureBool());
+        values.put("photo", marker.getPhoto());
         db.insert("Marker", null, values);
     }
 
@@ -198,5 +216,23 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
         }
         db.close();
         return mesure;
+    }
+
+    public void deleteAllMesureErosionDistance() {
+        boolean result = false;
+        String query = "Select*FROM MesureErosionDistance";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            MesureErosionDistance mesureErosionDistance = new MesureErosionDistance();
+            mesureErosionDistance.setMarkerLatitude(Double.parseDouble(cursor.getString(1)));
+            mesureErosionDistance.setMarkerLongitude(Double.parseDouble(cursor.getString(2)));
+            db.delete("MesureErosionDistance", "markerLatitude =? and markerLongitude =?",
+                    new String[] {
+                            String.valueOf(mesureErosionDistance.getMarkerLatitude()), String.valueOf(mesureErosionDistance.getMarkerLongitude())
+                    });
+        }
+        cursor.close();
+        db.close();
     }
 }

@@ -21,6 +21,7 @@ public class PlaceMainActivity extends AppCompatActivity {
     private String coastType;
     private String INEC;
     private int erosionDistanceMesureBool;
+    private byte[] photo;
 
     public Double getMarkerLatitude() { return markerLatitude;    }
 
@@ -46,6 +47,11 @@ public class PlaceMainActivity extends AppCompatActivity {
         return nameTown;
     }
 
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.place_main_activity);
@@ -64,6 +70,7 @@ public class PlaceMainActivity extends AppCompatActivity {
             coastType = extras.getString("coastType");
             INEC = extras.getString("INEC");
             erosionDistanceMesureBool = extras.getInt("erosionDistanceMesureBool");
+            photo = extras.getByteArray("photo");
         }
     }
 

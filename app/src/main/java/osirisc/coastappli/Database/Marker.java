@@ -9,6 +9,7 @@ public class Marker {
     private String coastType = "Coast Type not provided";
     private String INEC = "INEC not provided";
     private int erosionDistanceMesure = 1;
+    private byte[] photo;
 
     public Marker() {}
 
@@ -27,6 +28,17 @@ public class Marker {
         this.coastType = coastType;
         this.erosionDistanceMesure = erosionDistanceMesure;
         this.INEC = INEC;
+    }
+
+    public Marker(double latitude, double longitude, String nameBeach, String nameTown, String coastType, String INEC, int erosionDistanceMesure, byte[] photo) {
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.nameBeach = nameBeach;
+        this.nameTown = nameTown;
+        this.coastType = coastType;
+        this.erosionDistanceMesure = erosionDistanceMesure;
+        this.INEC = INEC;
+        this.photo = photo;
     }
 
     public String getNameTown() { return nameTown; }
@@ -63,5 +75,11 @@ public class Marker {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public byte[] getPhoto() { return photo;    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 }

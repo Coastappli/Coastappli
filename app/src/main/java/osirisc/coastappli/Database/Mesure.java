@@ -8,7 +8,6 @@ public abstract class Mesure {
     private String time;
     private String user;
     private String notes;
-    //private byte[] photos;
 
     public Mesure() {
     }
