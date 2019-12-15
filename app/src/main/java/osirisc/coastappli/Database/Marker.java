@@ -24,16 +24,7 @@ public class Marker {
 
     public Marker() {}
 
-    public Marker(double latitude, double longitude, String nameBeach, String nameTown) {
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.nameBeach = nameBeach;
-        this.nameTown = nameTown;
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        ((BitmapDrawable) ContextCompat.getDrawable(getApplicationContext(), R.mipmap.ic_launcher_coast)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        this.photo = byteArray;
-    }
+
 
     public Marker(double latitude, double longitude, String nameBeach, String nameTown, String coastType, String INEC, int erosionDistanceMesure) {
         this.longitude = longitude;

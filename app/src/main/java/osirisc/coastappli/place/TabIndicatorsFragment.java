@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -46,7 +47,9 @@ public class TabIndicatorsFragment extends Fragment {
         });
         if (((PlaceMainActivity)getActivity()).getErosionDistanceMesureBool()== 0){
             Button distanceButton = root.findViewById(R.id.distanceButton);
+            TextView textViewErosionDistance = root.findViewById(R.id.textViewErosionDistance);
             distanceButton.setVisibility(GONE);
+            textViewErosionDistance.setVisibility(GONE);
         }
         return root;
     }

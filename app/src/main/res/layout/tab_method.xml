@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
@@ -24,6 +25,7 @@
                 android:gravity="center"
                 android:text="@string/methodDistanceTitle"
                 android:textSize="25sp"
+                android:textColor="@color/colorPrimary"
                 android:paddingBottom="10dp"
                 android:textStyle="bold" />
 
@@ -42,10 +44,73 @@
                 android:paddingBottom="10dp"/>
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imageViewMethodPhoto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:srcCompat="@mipmap/ic_launcher_coast" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewMethodClue1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="5dp"
+                        android:text="@string/methodClue1" />
+
+                    <TextView
+                        android:id="@+id/textViewMethodFillClue1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewMethodClue2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="5dp"
+                        android:text="@string/methodClue2" />
+
+                    <TextView
+                        android:id="@+id/textViewMethodFillClue2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewMethodClue3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="5dp"
+                        android:text="@string/methodClue3" />
+
+                    <TextView
+                        android:id="@+id/textViewMethodFillClue3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+            </TableLayout>
 
             <TextView
                 android:id="@+id/textViewMethodDistance3"
@@ -56,7 +121,7 @@
                 android:paddingBottom="10dp"/>
 
             <ImageView
-                android:id="@+id/imageViewMethodDistance1"
+                android:id="@+id/imageViewMethodPhotoPerson"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:srcCompat="@mipmap/ic_launcher_coast" />
@@ -72,8 +137,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    tools:srcCompat="@drawable/ic_light"
-                    android:paddingTop="5dp"/>
+                    android:paddingTop="5dp"
+                    app:srcCompat="@drawable/ic_light" />
 
                 <TextView
                     android:id="@+id/textViewMethodDistance4"

@@ -114,4 +114,12 @@ public class MethodMainActivity extends AppCompatActivity {
         myPlaceIntent.putExtra("photo", photo);
         MethodMainActivity.this.startActivity(myPlaceIntent);
     }
+
+    public Double getMarkerLatitude() {
+        return markerLatitude;
+    }
+
+    public Double getMarkerLongitude() {
+        return markerLongitude;
+    }
 }

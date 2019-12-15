@@ -30,6 +30,9 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE Marker (_id INTEGER PRIMARY KEY AUTOINCREMENT, latitude DOUBLE, longitude DOUBLE, namebeach TEXT, nameTown TEXT, coastType TEXT, INEC TEXT, erosionDistanceMesure BOOL,  photo BLOB);");
         db.execSQL("CREATE TABLE MesureErosionDistance (_id INTEGER PRIMARY KEY AUTOINCREMENT, markerLatitude DOUBLE, markerLongitude DOUBLE, date DATE, time DATE, user TEXT, note TEXT, photo BLOB);");
+        db.execSQL("CREATE TABLE MethodErosionDistance (_id INTEGER PRIMARY KEY AUTOINCREMENT, markerLatitude DOUBLE, markerLongitude DOUBLE, photo BLOB, photoPerson BLOB, clue1 TEXT, clue2 TEXT, clue3 TEXT);");
+
+
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         ((BitmapDrawable)ContextCompat.getDrawable(getApplicationContext(), R.drawable.le_dellec)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
@@ -37,6 +40,16 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
         Marker marker1 = new Marker(47.3549, -5.671, "Test2", "Test2", "Test2", "Test2", 0);
         addInitMarker(marker, db);
         addInitMarker(marker1, db);
+
+
+        ByteArrayOutputStream streamPhoto = new ByteArrayOutputStream();
+        ((BitmapDrawable)ContextCompat.getDrawable(getApplicationContext(), R.drawable.photo_dellec)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, streamPhoto);
+        byte[] byteArrayPhoto = streamPhoto.toByteArray();
+        ByteArrayOutputStream streamPhotoPerson = new ByteArrayOutputStream();
+        ((BitmapDrawable)ContextCompat.getDrawable(getApplicationContext(), R.drawable.photo_person_dellec)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, streamPhotoPerson);
+        byte[] byteArrayPhotoPerson = streamPhotoPerson.toByteArray();
+        MethodErosionDistance method = new MethodErosionDistance(48.3549,-4.5671, byteArrayPhoto, byteArrayPhotoPerson, "Clocher dans le coin gauche", "Arbre aligné avec le centre", "Ne pas trop voir le ciel");
+        addInitMethodErosionDistance(method, db);
     }
 
     // A quoi ça sert ?????
@@ -233,5 +246,39 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
         }
         cursor.close();
         db.close();
+    }
+
+    public void addInitMethodErosionDistance(MethodErosionDistance method, SQLiteDatabase db){
+        ContentValues values = new ContentValues();
+        values.put("markerLatitude", method.getMarkerLatitude());
+        values.put("markerLongitude", method.getMarkerLongitude());
+        values.put("photo", method.getPhoto());
+        values.put("photoPerson", method.getPhotoPerson());
+        values.put("clue1", method.getClue1());
+        values.put("clue2", method.getClue2());
+        values.put("clue3", method.getClue3());
+        db.insert("MethodErosionDistance", null, values);
+    }
+
+    public MethodErosionDistance findMethodErosionDistance(double latitude, double longitude){
+        String query = "Select*FROM MethodErosionDistance WHERE markerLatitude =" + "'" + latitude +  "'" + "AND markerLongitude =" + "'" + longitude +  "' ORDER BY _id DESC";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        MethodErosionDistance method = new MethodErosionDistance();
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            method.setMarkerLatitude(Double.parseDouble(cursor.getString(1)));
+            method.setMarkerLongitude(Double.parseDouble(cursor.getString(2)));
+            method.setPhoto(cursor.getBlob(3));
+            method.setPhotoPerson(cursor.getBlob(4));
+            method.setClue1(cursor.getString(5));
+            method.setClue2(cursor.getString(6));
+            method.setClue3(cursor.getString(7));
+            cursor.close();
+        } else {
+            method = null;
+        }
+        db.close();
+        return method;
     }
 }
