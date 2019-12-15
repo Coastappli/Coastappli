@@ -3,6 +3,7 @@ package osirisc.coastappli;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -17,6 +18,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -92,7 +94,11 @@ public class MethodMainActivity extends AppCompatActivity {
         TextView noteText = findViewById(R.id.editTextNote);
         mesure.setNotes((noteText.getText()).toString());
         mesure.setUser("");
-        //mesure.setPhoto();
+        ImageView imageView2 = findViewById(R.id.imageViewPhoto);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        ((BitmapDrawable)imageView2.getDrawable()).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        mesure.setPhoto(byteArray);
         DatabaseAssistant databaseAssistant = new DatabaseAssistant(this);
         databaseAssistant.addMesureErosionDistance(mesure);
         Mesure mesure1 = databaseAssistant.findMesureErosionDistance(mesure.getMarkerLatitude(), mesure.getMarkerLongitude());

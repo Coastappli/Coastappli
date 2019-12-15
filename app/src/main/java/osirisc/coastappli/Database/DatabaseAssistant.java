@@ -19,7 +19,7 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE Marker (_id INTEGER PRIMARY KEY AUTOINCREMENT, latitude DOUBLE, longitude DOUBLE, namebeach TEXT, nameTown TEXT, coastType TEXT, INEC TEXT, erosionDistanceMesure BOOL);");
-        db.execSQL("CREATE TABLE MesureErosionDistance (_id INTEGER PRIMARY KEY AUTOINCREMENT, markerLatitude DOUBLE, markerLongitude DOUBLE, date DATE, time DATE, user TEXT, note TEXT);");
+        db.execSQL("CREATE TABLE MesureErosionDistance (_id INTEGER PRIMARY KEY AUTOINCREMENT, markerLatitude DOUBLE, markerLongitude DOUBLE, date DATE, time DATE, user TEXT, note TEXT, photo BLOB);");
         Marker marker = new Marker(48.3549,-4.5671,  "Le Dellec", "Plouzané", "Type de côte", "INEC", 1);
         Marker marker1 = new Marker(47.3549, -5.671, "Test2", "Test2", "Test2", "Test2", 0);
         addInitMarker(marker, db);
@@ -172,7 +172,7 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
         values.put("time", mesure.getTime());
         values.put("user", mesure.getUser());
         values.put("note", mesure.getNotes());
-        //values.put("photo", mesure.getPhoto());
+        values.put("photo", mesure.getPhoto());
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert("MesureErosionDistance", null, values);
         db.close();
@@ -191,6 +191,7 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
             mesure.setTime(cursor.getString(4));
             mesure.setUser(cursor.getString(5));
             mesure.setNotes(cursor.getString(6));
+            mesure.setPhoto(cursor.getBlob(7));
             cursor.close();
         } else {
             mesure = null;
