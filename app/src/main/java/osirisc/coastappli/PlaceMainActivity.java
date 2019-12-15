@@ -83,6 +83,7 @@ public class PlaceMainActivity extends AppCompatActivity {
         myIntent.putExtra("coastType", coastType);
         myIntent.putExtra("INEC", INEC);
         myIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
+        myIntent.putExtra("photo", photo);
         PlaceMainActivity.this.startActivity(myIntent);
         PlaceMainActivity.this.finish();
     }

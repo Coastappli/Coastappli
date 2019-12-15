@@ -36,6 +36,7 @@ public class MethodMainActivity extends AppCompatActivity {
     private String coastType;
     private String INEC;
     private int erosionDistanceMesureBool;
+    private byte[] photo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class MethodMainActivity extends AppCompatActivity {
             coastType = extras.getString("coastType");
             INEC = extras.getString("INEC");
             erosionDistanceMesureBool = extras.getInt("erosionDistanceMesureBool");
+            photo = extras.getByteArray("photo");
         }
     }
 
@@ -109,6 +111,7 @@ public class MethodMainActivity extends AppCompatActivity {
         myPlaceIntent.putExtra("coastType", coastType);
         myPlaceIntent.putExtra("INEC", INEC);
         myPlaceIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
+        myPlaceIntent.putExtra("photo", photo);
         MethodMainActivity.this.startActivity(myPlaceIntent);
     }
 }

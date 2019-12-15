@@ -1,5 +1,16 @@
 package osirisc.coastappli.Database;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+
+import androidx.core.content.ContextCompat;
+
+import java.io.ByteArrayOutputStream;
+
+import osirisc.coastappli.R;
+
+import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
+
 public class Marker {
 
     private double longitude;
@@ -18,6 +29,10 @@ public class Marker {
         this.latitude = latitude;
         this.nameBeach = nameBeach;
         this.nameTown = nameTown;
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        ((BitmapDrawable) ContextCompat.getDrawable(getApplicationContext(), R.mipmap.ic_launcher_coast)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        this.photo = byteArray;
     }
 
     public Marker(double latitude, double longitude, String nameBeach, String nameTown, String coastType, String INEC, int erosionDistanceMesure) {
@@ -28,6 +43,10 @@ public class Marker {
         this.coastType = coastType;
         this.erosionDistanceMesure = erosionDistanceMesure;
         this.INEC = INEC;
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        ((BitmapDrawable) ContextCompat.getDrawable(getApplicationContext(), R.mipmap.ic_launcher_coast)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        this.photo = byteArray;
     }
 
     public Marker(double latitude, double longitude, String nameBeach, String nameTown, String coastType, String INEC, int erosionDistanceMesure, byte[] photo) {
