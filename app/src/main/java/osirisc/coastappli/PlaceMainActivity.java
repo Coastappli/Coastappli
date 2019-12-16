@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
 
+import osirisc.coastappli.Database.DatabaseAssistant;
+import osirisc.coastappli.Database.Marker;
 import osirisc.coastappli.place.SectionsPagerAdapter;
 
 public class PlaceMainActivity extends AppCompatActivity {
@@ -22,7 +24,6 @@ public class PlaceMainActivity extends AppCompatActivity {
     private String coastType;
     private String INEC;
     private int erosionDistanceMesureBool;
-    private byte[] photo;
 
     private int width;
 
@@ -51,11 +52,12 @@ public class PlaceMainActivity extends AppCompatActivity {
     }
 
     public byte[] getPhoto() {
-        return photo;
+        DatabaseAssistant databaseAssistant = new DatabaseAssistant(this);
+        Marker marker = databaseAssistant.findMarker(this.getMarkerLatitude(), this.getMarkerLongitude());
+        return marker.getPhoto();
     }
 
     public int getWidth(){ return width;}
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +77,6 @@ public class PlaceMainActivity extends AppCompatActivity {
             coastType = extras.getString("coastType");
             INEC = extras.getString("INEC");
             erosionDistanceMesureBool = extras.getInt("erosionDistanceMesureBool");
-            photo = extras.getByteArray("photo");
         }
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -92,7 +93,6 @@ public class PlaceMainActivity extends AppCompatActivity {
         myIntent.putExtra("coastType", coastType);
         myIntent.putExtra("INEC", INEC);
         myIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
-        myIntent.putExtra("photo", photo);
         PlaceMainActivity.this.startActivity(myIntent);
         PlaceMainActivity.this.finish();
     }

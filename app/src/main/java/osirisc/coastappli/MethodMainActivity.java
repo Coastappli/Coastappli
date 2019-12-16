@@ -3,7 +3,7 @@ package osirisc.coastappli;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
+
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -36,7 +36,7 @@ public class MethodMainActivity extends AppCompatActivity {
     private String coastType;
     private String INEC;
     private int erosionDistanceMesureBool;
-    private byte[] photo;
+    private Bitmap imageBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,6 @@ public class MethodMainActivity extends AppCompatActivity {
             coastType = extras.getString("coastType");
             INEC = extras.getString("INEC");
             erosionDistanceMesureBool = extras.getInt("erosionDistanceMesureBool");
-            photo = extras.getByteArray("photo");
         }
     }
 
@@ -78,7 +77,7 @@ public class MethodMainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageBitmap = (Bitmap) extras.get("data");
             ImageView imageViewPhoto = findViewById(R.id.imageViewPhoto);
             imageViewPhoto.setImageBitmap(imageBitmap);
             imageViewPhoto.setVisibility(VISIBLE);
@@ -94,9 +93,9 @@ public class MethodMainActivity extends AppCompatActivity {
         TextView noteText = findViewById(R.id.editTextNote);
         mesure.setNotes((noteText.getText()).toString());
         mesure.setUser(getResources().getString(R.string.notImplemented));
-        ImageView imageView2 = findViewById(R.id.imageViewPhoto);
+
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        ((BitmapDrawable)imageView2.getDrawable()).getBitmap().compress(Bitmap.CompressFormat.PNG, 200, stream);
+        imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
         mesure.setPhoto(byteArray);
         DatabaseAssistant databaseAssistant = new DatabaseAssistant(this);
@@ -111,7 +110,6 @@ public class MethodMainActivity extends AppCompatActivity {
         myPlaceIntent.putExtra("coastType", coastType);
         myPlaceIntent.putExtra("INEC", INEC);
         myPlaceIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
-        myPlaceIntent.putExtra("photo", photo);
         MethodMainActivity.this.startActivity(myPlaceIntent);
     }
 

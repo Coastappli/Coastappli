@@ -1,11 +1,17 @@
 package osirisc.coastappli;
 
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+
+import osirisc.coastappli.Database.DatabaseAssistant;
+import osirisc.coastappli.Database.Marker;
+import osirisc.coastappli.Database.MethodErosionDistance;
 
 
 public class FullScreen extends AppCompatActivity {
@@ -15,10 +21,27 @@ public class FullScreen extends AppCompatActivity {
         setContentView(R.layout.fullscreen);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            byte[] image = extras.getByteArray("Image");
+            Double markerLatitude = extras.getDouble("markerLatitude");
+            Double markerLongitude = extras.getDouble("markerLongitude");
+            String imageType = extras.getString("imageType");
             ImageView imageFullScreen = findViewById(R.id.imageFullScreen);
-            if (image != null) {
-                imageFullScreen.setImageBitmap(BitmapFactory.decodeByteArray(image, 0,image.length));
+            if (imageType.equals("informationPhoto")) {
+                DatabaseAssistant databaseAssistant = new DatabaseAssistant(this);
+                Marker marker = databaseAssistant.findMarker(markerLatitude, markerLongitude);
+                Bitmap bm = BitmapFactory.decodeByteArray(marker.getPhoto(), 0,marker.getPhoto().length);
+                imageFullScreen.setImageBitmap(bm);
+            }
+            if (imageType.equals("MethodPhoto")) {
+                DatabaseAssistant databaseAssistant = new DatabaseAssistant(this);
+                MethodErosionDistance method = databaseAssistant.findMethodErosionDistance(markerLatitude, markerLongitude);
+                Bitmap bm = BitmapFactory.decodeByteArray(method.getPhoto(), 0,method.getPhoto().length);
+                imageFullScreen.setImageBitmap(bm);
+            }
+            if (imageType.equals("MethodPhotoPerson")) {
+                DatabaseAssistant databaseAssistant = new DatabaseAssistant(this);
+                MethodErosionDistance method = databaseAssistant.findMethodErosionDistance(markerLatitude, markerLongitude);
+                Bitmap bm = BitmapFactory.decodeByteArray(method.getPhotoPerson(), 0,method.getPhotoPerson().length);
+                imageFullScreen.setImageBitmap(bm);
             }
         }
     }

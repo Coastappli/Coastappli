@@ -32,7 +32,6 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE MesureErosionDistance (_id INTEGER PRIMARY KEY AUTOINCREMENT, markerLatitude DOUBLE, markerLongitude DOUBLE, date DATE, time DATE, user TEXT, note TEXT, photo BLOB);");
         db.execSQL("CREATE TABLE MethodErosionDistance (_id INTEGER PRIMARY KEY AUTOINCREMENT, markerLatitude DOUBLE, markerLongitude DOUBLE, photo BLOB, photoPerson BLOB, clue1 TEXT, clue2 TEXT, clue3 TEXT);");
 
-
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         ((BitmapDrawable)ContextCompat.getDrawable(getApplicationContext(), R.drawable.le_dellec)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
@@ -41,12 +40,12 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
         addInitMarker(marker, db);
         addInitMarker(marker1, db);
 
-
+        //Attention: somme des deux photos de la méthode limitée à 1MB
         ByteArrayOutputStream streamPhoto = new ByteArrayOutputStream();
         ((BitmapDrawable)ContextCompat.getDrawable(getApplicationContext(), R.drawable.photo_dellec)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, streamPhoto);
         byte[] byteArrayPhoto = streamPhoto.toByteArray();
         ByteArrayOutputStream streamPhotoPerson = new ByteArrayOutputStream();
-        ((BitmapDrawable)ContextCompat.getDrawable(getApplicationContext(), R.drawable.photo_person_dellec)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, streamPhotoPerson);
+        ((BitmapDrawable)ContextCompat.getDrawable(getApplicationContext(), R.drawable.photo_dellec_person)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, streamPhotoPerson);
         byte[] byteArrayPhotoPerson = streamPhotoPerson.toByteArray();
         MethodErosionDistance method = new MethodErosionDistance(48.3549,-4.5671, byteArrayPhoto, byteArrayPhotoPerson, "Clocher dans le coin gauche", "Arbre aligné avec le centre", "Ne pas trop voir le ciel");
         addInitMethodErosionDistance(method, db);

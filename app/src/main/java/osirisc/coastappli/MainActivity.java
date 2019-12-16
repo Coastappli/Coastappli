@@ -258,7 +258,6 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                 myIntent.putExtra("coastType", marker.getCoastType());
                 myIntent.putExtra("INEC", marker.getINEC());
                 myIntent.putExtra("erosionDistanceMesureBool", marker.getErosionDistanceMesureBool());
-                myIntent.putExtra("photo", marker.getPhoto());
                 MainActivity.this.startActivity(myIntent);}
         }
         return true;
