@@ -10,7 +10,7 @@ public class ProfileViewModel extends ViewModel {
 
     public ProfileViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Profiles are currently not used");
+        mText.setValue("Les profils ne sont pas encore implémentés");
     }
 
     public LiveData<String> getText() {

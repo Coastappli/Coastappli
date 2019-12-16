@@ -10,7 +10,7 @@ public class LogOutViewModel extends ViewModel {
 
     public LogOutViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Currently not used : page to log in and future home page");
+        mText.setValue("La page de déconnexion n'est pas encore implémentée");
     }
 
     public LiveData<String> getText() {

@@ -71,7 +71,7 @@
                         android:id="@+id/textViewUserFill"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Not implemented yet"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -152,6 +152,7 @@
                         android:id="@+id/textViewDateFill12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -171,6 +172,7 @@
                         android:id="@+id/textViewMesureFill12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp"/>
 
                 </TableRow>
@@ -190,6 +192,7 @@
                         android:id="@+id/textViewMesureFill22"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -209,6 +212,7 @@
                         android:id="@+id/textViewMesureFill32"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
                 </TableRow>
             </TableLayout>
@@ -248,6 +252,7 @@
                         android:id="@+id/textViewDateFill13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp"/>
 
                 </TableRow>
@@ -267,6 +272,7 @@
                         android:id="@+id/textViewMesureFill13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -286,6 +292,7 @@
                         android:id="@+id/textViewMesureFill23"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -305,6 +312,7 @@
                         android:id="@+id/textViewMesureFill33"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
                 </TableRow>
             </TableLayout>
@@ -343,6 +351,7 @@
                         android:id="@+id/textViewDateFill1Hauteur"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp"/>
 
                 </TableRow>
@@ -362,6 +371,7 @@
                         android:id="@+id/textViewMesureFill1Hauteur"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -381,6 +391,7 @@
                         android:id="@+id/textViewMesureFill2Hauteur"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -400,6 +411,7 @@
                         android:id="@+id/textViewMesureFill3Hauteur"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
                 </TableRow>
             </TableLayout>
@@ -438,6 +450,7 @@
                         android:id="@+id/textViewDateFill1Migration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp"/>
 
                 </TableRow>
@@ -457,6 +470,7 @@
                         android:id="@+id/textViewMesureFill1Migration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -476,6 +490,7 @@
                         android:id="@+id/textViewMesureFill2Migration"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -495,6 +510,7 @@
                         android:id="@+id/textViewMesureFill3Migration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
                 </TableRow>
             </TableLayout>
@@ -533,6 +549,7 @@
                         android:id="@+id/textViewDateFill1Paquets"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp"/>
 
                 </TableRow>
@@ -552,6 +569,7 @@
                         android:id="@+id/textViewMesureFill1Paquets"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -571,6 +589,8 @@
                         android:id="@+id/textViewMesureFill2Paquets"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:text="@string/notImplemented"
+
                         android:padding="5dp" />
 
                 </TableRow>
@@ -590,6 +610,7 @@
                         android:id="@+id/textViewMesureFill3Paquets"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
                 </TableRow>
             </TableLayout>

@@ -95,7 +95,7 @@
                     android:id="@+id/textViewTydes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Not implement yet" />
+                    android:text="@string/notImplemented" />
             </TableRow>
 
             <TableRow
@@ -116,7 +116,7 @@
                     android:id="@+id/textViewNews"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Not implement yet" />
+                    android:text="@string/notImplemented" />
             </TableRow>
 
         </TableLayout>

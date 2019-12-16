@@ -71,4 +71,6 @@
     <string name="methodClue1">Indice 1:</string>
     <string name="methodClue2">Indice 2:</string>
     <string name="methodClue3">Indice 3:</string>
+
+    <string name="notImplemented">A implémenter</string>
 </resources>
