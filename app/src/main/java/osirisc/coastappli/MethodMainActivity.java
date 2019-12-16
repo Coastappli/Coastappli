@@ -120,4 +120,8 @@ public class MethodMainActivity extends AppCompatActivity {
     public Double getMarkerLongitude() {
         return markerLongitude;
     }
+
+    public Bitmap getImageBitmap() {
+        return imageBitmap;
+    }
 }

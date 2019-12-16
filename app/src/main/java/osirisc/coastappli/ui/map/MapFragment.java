@@ -16,8 +16,6 @@ import osirisc.coastappli.R;
 
 public class MapFragment extends Fragment implements View.OnClickListener {
 
-    CoordinatorLayout coordinatorLayout;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         ((MainActivity)getActivity()).createMapLocation(savedInstanceState);
@@ -29,9 +27,5 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         ((MainActivity)getActivity()).centerMapOnMyLocation();
-    }
-
-    public CoordinatorLayout getCoordinatorLayout() {
-        return coordinatorLayout;
     }
 }

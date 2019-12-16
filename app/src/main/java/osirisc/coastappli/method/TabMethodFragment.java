@@ -1,7 +1,6 @@
 package osirisc.coastappli.method;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -19,7 +18,6 @@ import com.github.chrisbanes.photoview.PhotoView;
 import osirisc.coastappli.Database.DatabaseAssistant;
 import osirisc.coastappli.Database.MethodErosionDistance;
 import osirisc.coastappli.MethodMainActivity;
-import osirisc.coastappli.PlaceMainActivity;
 import osirisc.coastappli.R;
 
 public class TabMethodFragment extends Fragment {

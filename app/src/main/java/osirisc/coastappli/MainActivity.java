@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
@@ -253,10 +255,10 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                     && listMarker.get(i).getLongitude() >= Longitude-errorList[zoom] && listMarker.get(i).getLongitude() <= Longitude+errorList[zoom]){
 
                 final Marker marker = databaseAssistant.findMarker(listMarker.get(i).getLatitude(), listMarker.get(i).getLongitude());
-
+                FloatingActionButton fab = findViewById(R.id.fab);
                 Snackbar snackbar = Snackbar
-                        .make(this.findViewById(android.R.id.content), marker.getNameBeach()+ " / "+marker.getNameTown(), Snackbar.LENGTH_LONG)
-                        .setAction(getResources().getString(R.string.information), new View.OnClickListener() {
+                        .make(fab, marker.getNameBeach()+ " / "+marker.getNameTown(), Snackbar.LENGTH_LONG)
+                        .setAction("▶ " + getResources().getString(R.string.information)+" ◀", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 Intent myIntent= new Intent(MainActivity.this, PlaceMainActivity.class);
@@ -270,14 +272,17 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                                 MainActivity.this.startActivity(myIntent);
                             }
                         });
-                snackbar.setActionTextColor(getResources().getColor(R.color.colorPrimary));
+
+                //PROBLEME: FAIRE REDESCENDRE LE FAB
+                fab.animate().translationY(-100);
+                snackbar.setActionTextColor(getResources().getColor(R.color.colorPrimaryLight));
                 View sbView = snackbar.getView();
                 TextView textView = sbView.findViewById(com.google.android.material.R.id.snackbar_text);
-                textView.setTextColor(getResources().getColor(R.color.colorPrimary));
+                textView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                 sbView.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.white));
                 snackbar.show();
-                }
-        }
+            }
+            }
         return true;
     }
 }
