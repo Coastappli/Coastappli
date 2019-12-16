@@ -1,5 +1,6 @@
 package osirisc.coastappli.place;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,10 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+import com.github.chrisbanes.photoview.PhotoView;
 
-import osirisc.coastappli.FullScreen;
 import osirisc.coastappli.PlaceMainActivity;
 import osirisc.coastappli.R;
 
@@ -43,17 +42,18 @@ public class TabInformationFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         // get the button view
         final ImageView imageViewPlace = getView().findViewById(R.id.imageViewPlace);
-        // set a onclick listener for when the button gets clicked
         imageViewPlace.setOnClickListener(new View.OnClickListener() {
             // Start new list activity
             public void onClick(View v) {
-                Intent mainIntent = new Intent(getActivity(), FullScreen.class);
-                mainIntent.putExtra("markerLatitude",((PlaceMainActivity)getActivity()).getMarkerLatitude());
-                mainIntent.putExtra("markerLongitude",((PlaceMainActivity)getActivity()).getMarkerLongitude());
-                mainIntent.putExtra("imageType", "informationPhoto");
-                startActivity(mainIntent);
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+                View mView = getLayoutInflater().inflate(R.layout.fullscreen, null);
+                PhotoView photoView = mView.findViewById(R.id.photo_view);
+                Bitmap bm = BitmapFactory.decodeByteArray(((PlaceMainActivity)getActivity()).getPhoto(), 0,((PlaceMainActivity)getActivity()).getPhoto().length);
+                photoView.setImageBitmap(bm);
+                mBuilder.setView(mView);
+                AlertDialog mDialog = mBuilder.create();
+                mDialog.show();
             }
         });
     }
-
 }
