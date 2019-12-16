@@ -1,6 +1,8 @@
 package osirisc.coastappli.method;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,10 +14,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.github.chrisbanes.photoview.PhotoView;
+
 import osirisc.coastappli.Database.DatabaseAssistant;
 import osirisc.coastappli.Database.MethodErosionDistance;
-import osirisc.coastappli.FullScreen;
 import osirisc.coastappli.MethodMainActivity;
+import osirisc.coastappli.PlaceMainActivity;
 import osirisc.coastappli.R;
 
 public class TabMethodFragment extends Fragment {
@@ -52,11 +56,14 @@ public class TabMethodFragment extends Fragment {
         imageViewMethodPhoto.setOnClickListener(new View.OnClickListener() {
             // Start new list activity
             public void onClick(View v) {
-                Intent mainIntent = new Intent(getActivity(), FullScreen.class);
-                mainIntent.putExtra("markerLatitude",(method.getMarkerLatitude()));
-                mainIntent.putExtra("markerLongitude",(method.getMarkerLongitude()));
-                mainIntent.putExtra("imageType", "MethodPhoto");
-                startActivity(mainIntent);
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+                View mView = getLayoutInflater().inflate(R.layout.fullscreen, null);
+                PhotoView photoView = mView.findViewById(R.id.photo_view);
+                Bitmap bm = BitmapFactory.decodeByteArray(method.getPhoto(), 0,method.getPhoto().length);
+                photoView.setImageBitmap(bm);
+                mBuilder.setView(mView);
+                AlertDialog mDialog = mBuilder.create();
+                mDialog.show();
             }
         });
         final ImageView imageViewMethodPhotoPerson = getView().findViewById(R.id.imageViewMethodPhotoPerson);
@@ -64,11 +71,14 @@ public class TabMethodFragment extends Fragment {
         imageViewMethodPhotoPerson.setOnClickListener(new View.OnClickListener() {
             // Start new list activity
             public void onClick(View v) {
-                Intent mainIntent = new Intent(getActivity(), FullScreen.class);
-                mainIntent.putExtra("markerLatitude",(method.getMarkerLatitude()));
-                mainIntent.putExtra("markerLongitude",(method.getMarkerLongitude()));
-                mainIntent.putExtra("imageType", "MethodPhotoPerson");
-                startActivity(mainIntent);
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+                View mView = getLayoutInflater().inflate(R.layout.fullscreen, null);
+                PhotoView photoView = mView.findViewById(R.id.photo_view);
+                Bitmap bm = BitmapFactory.decodeByteArray(method.getPhotoPerson(), 0,method.getPhotoPerson().length);
+                photoView.setImageBitmap(bm);
+                mBuilder.setView(mView);
+                AlertDialog mDialog = mBuilder.create();
+                mDialog.show();
             }
         });
     }

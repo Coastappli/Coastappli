@@ -1,6 +1,7 @@
 package osirisc.coastappli.place;
 
-import android.content.Intent;
+import android.app.AlertDialog;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,9 +13,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.github.chrisbanes.photoview.PhotoView;
+
 import osirisc.coastappli.Database.DatabaseAssistant;
 import osirisc.coastappli.Database.MesureErosionDistance;
-import osirisc.coastappli.FullScreen;
 import osirisc.coastappli.PlaceMainActivity;
 import osirisc.coastappli.R;
 
@@ -47,14 +49,19 @@ public class TabTraceFragment extends Fragment {
         // TODO Auto-generated method stub
         super.onActivityCreated(savedInstanceState);
         // get the button view
-        final ImageView imageView2 = getView().findViewById(R.id.imageView2);
+        final ImageView imageViewTrace = getView().findViewById(R.id.imageView2);
         // set a onclick listener for when the button gets clicked
-        imageView2.setOnClickListener(new View.OnClickListener() {
+        imageViewTrace.setOnClickListener(new View.OnClickListener() {
             // Start new list activity
             public void onClick(View v) {
-                Intent mainIntent = new Intent(getActivity(), FullScreen.class);
-                mainIntent.putExtra("Image",mesure.getPhoto());
-                startActivity(mainIntent);
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+                View mView = getLayoutInflater().inflate(R.layout.fullscreen, null);
+                PhotoView photoView = mView.findViewById(R.id.photo_view);
+                Bitmap bm = BitmapFactory.decodeByteArray(mesure.getPhoto(), 0,mesure.getPhoto().length);
+                photoView.setImageBitmap(bm);
+                mBuilder.setView(mView);
+                AlertDialog mDialog = mBuilder.create();
+                mDialog.show();
             }
         });
     }
