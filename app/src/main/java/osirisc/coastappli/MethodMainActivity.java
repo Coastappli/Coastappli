@@ -93,10 +93,10 @@ public class MethodMainActivity extends AppCompatActivity {
         mesure.setTime(new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date()));
         TextView noteText = findViewById(R.id.editTextNote);
         mesure.setNotes((noteText.getText()).toString());
-        mesure.setUser("");
+        mesure.setUser(getResources().getString(R.string.notImplemented));
         ImageView imageView2 = findViewById(R.id.imageViewPhoto);
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        ((BitmapDrawable)imageView2.getDrawable()).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
+        ((BitmapDrawable)imageView2.getDrawable()).getBitmap().compress(Bitmap.CompressFormat.PNG, 200, stream);
         byte[] byteArray = stream.toByteArray();
         mesure.setPhoto(byteArray);
         DatabaseAssistant databaseAssistant = new DatabaseAssistant(this);

@@ -19,6 +19,7 @@ import osirisc.coastappli.PlaceMainActivity;
 import osirisc.coastappli.R;
 
 public class TabTraceFragment extends Fragment {
+    private MesureErosionDistance mesure;
 
 
     @Override
@@ -27,7 +28,7 @@ public class TabTraceFragment extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.tab_trace, container, false);
         DatabaseAssistant databaseAssistant = new DatabaseAssistant(getActivity());
-        MesureErosionDistance mesure = databaseAssistant.findMesureErosionDistance(((PlaceMainActivity)getActivity()).getMarkerLatitude(), ((PlaceMainActivity)getActivity()).getMarkerLongitude());
+        mesure = databaseAssistant.findMesureErosionDistance(((PlaceMainActivity)getActivity()).getMarkerLatitude(), ((PlaceMainActivity)getActivity()).getMarkerLongitude());
         if (mesure!=null) {
             TextView textViewDateFill = root.findViewById(R.id.textViewDateFill);
             TextView textViewUserFill = root.findViewById(R.id.textViewUserFill);
@@ -52,7 +53,7 @@ public class TabTraceFragment extends Fragment {
             // Start new list activity
             public void onClick(View v) {
                 Intent mainIntent = new Intent(getActivity(), FullScreen.class);
-                mainIntent.putExtra("ImageId",imageView2.getId());
+                mainIntent.putExtra("Image",mesure.getPhoto());
                 startActivity(mainIntent);
             }
         });
