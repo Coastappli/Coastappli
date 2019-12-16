@@ -2,18 +2,22 @@ package osirisc.coastappli;
 
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 
-import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.geojson.Feature;
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
     private MapboxMap mapBoxMap;
     private PermissionsManager permissionsManager;
     private DatabaseAssistant databaseAssistant;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,14 +194,11 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
 
         List<Feature> features = new ArrayList<>();
         ArrayList<Marker> listMarker = databaseAssistant.loadMarker();
-        Log.i("ListMarker",listMarker.toString());
         for (int i = 0; i < listMarker.size(); ++i){
             features.add(Feature.fromGeometry(Point.fromLngLat(listMarker.get(i).getLongitude(), listMarker.get(i).getLatitude())));
-
         }
         /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
         loadedMapStyle.addSource(new GeoJsonSource("pk.eyJ1IjoicGF1bC1kcm9pZCIsImEiOiJjazNlbnJsMmowMDZrM2VtbmR1MWpjbHpoIn0.GeyDIGrew2ZOKRaYxwtC3w", FeatureCollection.fromFeatures(features)));
-
         /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
         loadedMapStyle.addLayer(new SymbolLayer("custom_markers", "pk.eyJ1IjoicGF1bC1kcm9pZCIsImEiOiJjazNlbnJsMmowMDZrM2VtbmR1MWpjbHpoIn0.GeyDIGrew2ZOKRaYxwtC3w")
                 .withProperties(
@@ -249,16 +251,32 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
         for (int i = 0; i < listMarker.size(); ++i){
             if (listMarker.get(i).getLatitude() >= Latitude-errorList[zoom] && listMarker.get(i).getLatitude() <= Latitude+errorList[zoom]
                     && listMarker.get(i).getLongitude() >= Longitude-errorList[zoom] && listMarker.get(i).getLongitude() <= Longitude+errorList[zoom]){
-                Marker marker = databaseAssistant.findMarker(listMarker.get(i).getLatitude(), listMarker.get(i).getLongitude());
-                Intent myIntent= new Intent(this, PlaceMainActivity.class);
-                myIntent.putExtra("markerLatitude", marker.getLatitude());
-                myIntent.putExtra("markerLongitude", marker.getLongitude());
-                myIntent.putExtra("nameBeach", marker.getNameBeach());
-                myIntent.putExtra("nameTown", marker.getNameTown());
-                myIntent.putExtra("coastType", marker.getCoastType());
-                myIntent.putExtra("INEC", marker.getINEC());
-                myIntent.putExtra("erosionDistanceMesureBool", marker.getErosionDistanceMesureBool());
-                MainActivity.this.startActivity(myIntent);}
+
+                final Marker marker = databaseAssistant.findMarker(listMarker.get(i).getLatitude(), listMarker.get(i).getLongitude());
+
+                Snackbar snackbar = Snackbar
+                        .make(this.findViewById(android.R.id.content), marker.getNameBeach()+ " / "+marker.getNameTown(), Snackbar.LENGTH_LONG)
+                        .setAction(getResources().getString(R.string.information), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent myIntent= new Intent(MainActivity.this, PlaceMainActivity.class);
+                                myIntent.putExtra("markerLatitude", marker.getLatitude());
+                                myIntent.putExtra("markerLongitude", marker.getLongitude());
+                                myIntent.putExtra("nameBeach", marker.getNameBeach());
+                                myIntent.putExtra("nameTown", marker.getNameTown());
+                                myIntent.putExtra("coastType", marker.getCoastType());
+                                myIntent.putExtra("INEC", marker.getINEC());
+                                myIntent.putExtra("erosionDistanceMesureBool", marker.getErosionDistanceMesureBool());
+                                MainActivity.this.startActivity(myIntent);
+                            }
+                        });
+                snackbar.setActionTextColor(getResources().getColor(R.color.colorPrimary));
+                View sbView = snackbar.getView();
+                TextView textView = sbView.findViewById(com.google.android.material.R.id.snackbar_text);
+                textView.setTextColor(getResources().getColor(R.color.colorPrimary));
+                sbView.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.white));
+                snackbar.show();
+                }
         }
         return true;
     }
