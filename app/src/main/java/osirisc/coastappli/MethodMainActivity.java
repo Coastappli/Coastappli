@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,7 +23,6 @@ import java.util.Date;
 import java.util.Locale;
 
 import osirisc.coastappli.Database.DatabaseAssistant;
-import osirisc.coastappli.Database.Mesure;
 import osirisc.coastappli.Database.MesureErosionDistance;
 import osirisc.coastappli.method.SectionsPagerAdapterMethod;
 
@@ -38,6 +36,7 @@ public class MethodMainActivity extends AppCompatActivity {
     private String coastType;
     private String INEC;
     private int erosionDistanceMesureBool;
+    private byte[] photo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +57,7 @@ public class MethodMainActivity extends AppCompatActivity {
             coastType = extras.getString("coastType");
             INEC = extras.getString("INEC");
             erosionDistanceMesureBool = extras.getInt("erosionDistanceMesureBool");
+            photo = extras.getByteArray("photo");
         }
     }
 
@@ -101,8 +101,6 @@ public class MethodMainActivity extends AppCompatActivity {
         mesure.setPhoto(byteArray);
         DatabaseAssistant databaseAssistant = new DatabaseAssistant(this);
         databaseAssistant.addMesureErosionDistance(mesure);
-        Mesure mesure1 = databaseAssistant.findMesureErosionDistance(mesure.getMarkerLatitude(), mesure.getMarkerLongitude());
-        Log.e("Date", mesure1.getDate());
         MethodMainActivity.this.finish();
 
         Intent myPlaceIntent= new Intent(this, PlaceMainActivity.class);
@@ -113,6 +111,15 @@ public class MethodMainActivity extends AppCompatActivity {
         myPlaceIntent.putExtra("coastType", coastType);
         myPlaceIntent.putExtra("INEC", INEC);
         myPlaceIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
+        myPlaceIntent.putExtra("photo", photo);
         MethodMainActivity.this.startActivity(myPlaceIntent);
+    }
+
+    public Double getMarkerLatitude() {
+        return markerLatitude;
+    }
+
+    public Double getMarkerLongitude() {
+        return markerLongitude;
     }
 }

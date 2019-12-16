@@ -8,18 +8,8 @@ public abstract class Mesure {
     private String time;
     private String user;
     private String notes;
-    //private byte[] photos;
 
     public Mesure() {
-    }
-
-    public Mesure(Double markerLatitude, Double markerLongitude, String date, String time, String user, String notes) {
-        this.markerLatitude = markerLatitude;
-        this.markerLongitude = markerLongitude;
-        this.date = date;
-        this.time = time;
-        this.user = user;
-        this.notes = notes;
     }
 
     public Double getMarkerLatitude() {

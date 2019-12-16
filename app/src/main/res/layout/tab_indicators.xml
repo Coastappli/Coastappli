@@ -36,7 +36,6 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:button="@android:color/transparent"
-            android:paddingLeft="10dp"
             android:text="@string/submersion" />
     </RadioGroup>
 

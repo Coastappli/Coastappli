@@ -10,7 +10,7 @@ public class BadgesViewModel extends ViewModel {
 
     public BadgesViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Badges are currently not used");
+        mText.setValue("Les badges ne sont pas encore implémentés");
     }
 
     public LiveData<String> getText() {

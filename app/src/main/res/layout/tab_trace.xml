@@ -71,6 +71,7 @@
                         android:id="@+id/textViewUserFill"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -127,6 +128,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <TextView
+                    android:id="@+id/textViewMesureErosionSurface"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/mesureErosionSurface"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -142,6 +153,7 @@
                         android:id="@+id/textViewDateFill12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -161,6 +173,7 @@
                         android:id="@+id/textViewMesureFill12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp"/>
 
                 </TableRow>
@@ -180,6 +193,7 @@
                         android:id="@+id/textViewMesureFill22"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -199,6 +213,7 @@
                         android:id="@+id/textViewMesureFill32"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
                 </TableRow>
             </TableLayout>
@@ -212,6 +227,16 @@
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewMesureErosionVolume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/mesureErosionSurface"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -228,6 +253,7 @@
                         android:id="@+id/textViewDateFill13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp"/>
 
                 </TableRow>
@@ -247,6 +273,7 @@
                         android:id="@+id/textViewMesureFill13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -266,6 +293,7 @@
                         android:id="@+id/textViewMesureFill23"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
 
                 </TableRow>
@@ -285,6 +313,305 @@
                         android:id="@+id/textViewMesureFill33"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
+                        android:padding="5dp" />
+                </TableRow>
+            </TableLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/black" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewMesureSubmersionHauteur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/mesureSubmersionHauteur"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewDate1Hauteur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/date" />
+
+                    <TextView
+                        android:id="@+id/textViewDateFill1Hauteur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
+                        android:padding="5dp"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewMesure1Hauteur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Mesure 1:" />
+
+                    <TextView
+                        android:id="@+id/textViewMesureFill1Hauteur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewMesure2Hauteur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Mesure 2 :" />
+
+                    <TextView
+                        android:id="@+id/textViewMesureFill2Hauteur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/notImplemented"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewMesure3Hauteur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Mesure 3:" />
+
+                    <TextView
+                        android:id="@+id/textViewMesureFill3Hauteur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
+                        android:padding="5dp" />
+                </TableRow>
+            </TableLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/black" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewMesureSubmersionMigration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/mesureSubmersionMigration"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewDate1Migration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/date" />
+
+                    <TextView
+                        android:id="@+id/textViewDateFill1Migration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
+                        android:padding="5dp"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewMesure1Migration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Mesure 1:" />
+
+                    <TextView
+                        android:id="@+id/textViewMesureFill1Migration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewMesure2Migration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Mesure 2 :" />
+
+                    <TextView
+                        android:id="@+id/textViewMesureFill2Migration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/notImplemented"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewMesure3Migration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Mesure 3:" />
+
+                    <TextView
+                        android:id="@+id/textViewMesureFill3Migration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
+                        android:padding="5dp" />
+                </TableRow>
+            </TableLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/black" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewMesureSubmersionPaquets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/mesureSubmersionPaquets"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewDate1Paquets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/date" />
+
+                    <TextView
+                        android:id="@+id/textViewDateFill1Paquets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
+                        android:padding="5dp"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewMesure1Paquets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Mesure 1:" />
+
+                    <TextView
+                        android:id="@+id/textViewMesureFill1Paquets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewMesure2Paquets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Mesure 2 :" />
+
+                    <TextView
+                        android:id="@+id/textViewMesureFill2Paquets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/notImplemented"
+
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewMesure3Paquets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Mesure 3:" />
+
+                    <TextView
+                        android:id="@+id/textViewMesureFill3Paquets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notImplemented"
                         android:padding="5dp" />
                 </TableRow>
             </TableLayout>

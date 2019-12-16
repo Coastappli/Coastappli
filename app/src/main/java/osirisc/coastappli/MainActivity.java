@@ -67,6 +67,11 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent i = new Intent(MainActivity.this,
+                SplashScreen.class);
+        startActivity(i);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -253,6 +258,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                 myIntent.putExtra("coastType", marker.getCoastType());
                 myIntent.putExtra("INEC", marker.getINEC());
                 myIntent.putExtra("erosionDistanceMesureBool", marker.getErosionDistanceMesureBool());
+                myIntent.putExtra("photo", marker.getPhoto());
                 MainActivity.this.startActivity(myIntent);}
         }
         return true;

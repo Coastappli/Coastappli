@@ -10,7 +10,7 @@ public class HistoryViewModel extends ViewModel {
 
     public HistoryViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("History fragment is currently not used");
+        mText.setValue("L'historique n'est pas encore implémenté");
     }
 
     public LiveData<String> getText() {

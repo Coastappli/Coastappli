@@ -1,5 +1,16 @@
 package osirisc.coastappli.Database;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+
+import androidx.core.content.ContextCompat;
+
+import java.io.ByteArrayOutputStream;
+
+import osirisc.coastappli.R;
+
+import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
+
 public class Marker {
 
     private double longitude;
@@ -9,15 +20,11 @@ public class Marker {
     private String coastType = "Coast Type not provided";
     private String INEC = "INEC not provided";
     private int erosionDistanceMesure = 1;
+    private byte[] photo;
 
     public Marker() {}
 
-    public Marker(double latitude, double longitude, String nameBeach, String nameTown) {
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.nameBeach = nameBeach;
-        this.nameTown = nameTown;
-    }
+
 
     public Marker(double latitude, double longitude, String nameBeach, String nameTown, String coastType, String INEC, int erosionDistanceMesure) {
         this.longitude = longitude;
@@ -27,6 +34,21 @@ public class Marker {
         this.coastType = coastType;
         this.erosionDistanceMesure = erosionDistanceMesure;
         this.INEC = INEC;
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        ((BitmapDrawable) ContextCompat.getDrawable(getApplicationContext(), R.mipmap.ic_launcher_coast)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        this.photo = byteArray;
+    }
+
+    public Marker(double latitude, double longitude, String nameBeach, String nameTown, String coastType, String INEC, int erosionDistanceMesure, byte[] photo) {
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.nameBeach = nameBeach;
+        this.nameTown = nameTown;
+        this.coastType = coastType;
+        this.erosionDistanceMesure = erosionDistanceMesure;
+        this.INEC = INEC;
+        this.photo = photo;
     }
 
     public String getNameTown() { return nameTown; }
@@ -63,5 +85,11 @@ public class Marker {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public byte[] getPhoto() { return photo;    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 }

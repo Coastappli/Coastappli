@@ -24,9 +24,11 @@
                     android:id="@+id/textViewNamePlace"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingEnd="40dp"
                     android:gravity="center"
-                    android:text="Nom du lieu selectionné" />
+                    android:paddingEnd="40dp"
+                    android:text="Nom du lieu selectionné"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/imageViewPlace"
@@ -93,7 +95,7 @@
                     android:id="@+id/textViewTydes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Not implement yet" />
+                    android:text="@string/notImplemented" />
             </TableRow>
 
             <TableRow
@@ -114,7 +116,7 @@
                     android:id="@+id/textViewNews"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Not implement yet" />
+                    android:text="@string/notImplemented" />
             </TableRow>
 
         </TableLayout>

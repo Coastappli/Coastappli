@@ -9,6 +9,7 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.DisplayMetrics;
 import android.view.View;
 
 import osirisc.coastappli.place.SectionsPagerAdapter;
@@ -21,6 +22,9 @@ public class PlaceMainActivity extends AppCompatActivity {
     private String coastType;
     private String INEC;
     private int erosionDistanceMesureBool;
+    private byte[] photo;
+
+    private int width;
 
     public Double getMarkerLatitude() { return markerLatitude;    }
 
@@ -46,6 +50,13 @@ public class PlaceMainActivity extends AppCompatActivity {
         return nameTown;
     }
 
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public int getWidth(){ return width;}
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.place_main_activity);
@@ -64,7 +75,12 @@ public class PlaceMainActivity extends AppCompatActivity {
             coastType = extras.getString("coastType");
             INEC = extras.getString("INEC");
             erosionDistanceMesureBool = extras.getInt("erosionDistanceMesureBool");
+            photo = extras.getByteArray("photo");
         }
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        width = displayMetrics.widthPixels;
     }
 
     public void distanceFunction(View view){
@@ -76,6 +92,7 @@ public class PlaceMainActivity extends AppCompatActivity {
         myIntent.putExtra("coastType", coastType);
         myIntent.putExtra("INEC", INEC);
         myIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
+        myIntent.putExtra("photo", photo);
         PlaceMainActivity.this.startActivity(myIntent);
         PlaceMainActivity.this.finish();
     }

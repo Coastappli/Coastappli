@@ -1,9 +1,11 @@
 package osirisc.coastappli.place;
 
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +26,8 @@ public class TabInformationFragment extends Fragment {
         textViewNamePlace.setText(((PlaceMainActivity)getActivity()).getNameBeach()+"\n"+((PlaceMainActivity)getActivity()).getNameTown());
         textViewCoastType.setText(((PlaceMainActivity)getActivity()).getCoastType());
         textViewINEC.setText(((PlaceMainActivity)getActivity()).getINEC());
+        ImageView imageView2 = root.findViewById(R.id.imageViewPlace);
+        imageView2.setImageBitmap(BitmapFactory.decodeByteArray(((PlaceMainActivity)getActivity()).getPhoto(), 0,((PlaceMainActivity)getActivity()).getPhoto().length));
         return root;
     }
 
