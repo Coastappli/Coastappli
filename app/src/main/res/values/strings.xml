@@ -44,6 +44,12 @@
     <string name="take_photo">Prendre la photo</string>
     <string name="validate">Valider</string>
     <string name="mesureErosionDistance">Mesure Erosion Distance</string>
+    <string name="mesureErosionSurface">Mesure Erosion Surface</string>
+    <string name="mesureErosionVolume">Mesure Erosion Volume</string>
+    <string name="mesureSubmersionHauteur">Mesure Submersion Hauteur d\'eau</string>
+    <string name="mesureSubmersionMigration">Mesure Submersion Migration Dunaire</string>
+    <string name="mesureSubmersionPaquets">Mesure Submersion Paquets De Mer</string>
+
     <string name="user">Utilisateur</string>
     <string name="mesure">Mesure</string>
 

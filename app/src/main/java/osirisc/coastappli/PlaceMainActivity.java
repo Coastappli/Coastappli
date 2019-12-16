@@ -9,6 +9,7 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.DisplayMetrics;
 import android.view.View;
 
 import osirisc.coastappli.place.SectionsPagerAdapter;
@@ -22,6 +23,8 @@ public class PlaceMainActivity extends AppCompatActivity {
     private String INEC;
     private int erosionDistanceMesureBool;
     private byte[] photo;
+
+    private int width;
 
     public Double getMarkerLatitude() { return markerLatitude;    }
 
@@ -51,6 +54,8 @@ public class PlaceMainActivity extends AppCompatActivity {
         return photo;
     }
 
+    public int getWidth(){ return width;}
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +77,10 @@ public class PlaceMainActivity extends AppCompatActivity {
             erosionDistanceMesureBool = extras.getInt("erosionDistanceMesureBool");
             photo = extras.getByteArray("photo");
         }
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        width = displayMetrics.widthPixels;
     }
 
     public void distanceFunction(View view){

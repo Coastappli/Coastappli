@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -51,6 +52,10 @@ public class TabIndicatorsFragment extends Fragment {
             distanceButton.setVisibility(GONE);
             textViewErosionDistance.setVisibility(GONE);
         }
+        RadioButton radioButtonErosion = root.findViewById(R.id.radioButtonErosion);
+        radioButtonErosion.setWidth(((((PlaceMainActivity)getActivity()).getWidth())/2));
+        RadioButton radioButtonSubmersion = root.findViewById(R.id.radioButtonSubmersion);
+        radioButtonSubmersion.setWidth(((((PlaceMainActivity)getActivity()).getWidth())/2));
         return root;
     }
 
