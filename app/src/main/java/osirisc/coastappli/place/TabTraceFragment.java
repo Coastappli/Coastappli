@@ -1,5 +1,6 @@
 package osirisc.coastappli.place;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,12 +13,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import osirisc.coastappli.Database.DatabaseAssistant;
-import osirisc.coastappli.Database.Mesure;
 import osirisc.coastappli.Database.MesureErosionDistance;
+import osirisc.coastappli.FullScreen;
 import osirisc.coastappli.PlaceMainActivity;
 import osirisc.coastappli.R;
 
 public class TabTraceFragment extends Fragment {
+
 
     @Override
     public View onCreateView(
@@ -37,5 +39,22 @@ public class TabTraceFragment extends Fragment {
             imageView2.setImageBitmap(BitmapFactory.decodeByteArray( mesure.getPhoto(), 0,mesure.getPhoto().length));
         }
         return root;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onActivityCreated(savedInstanceState);
+        // get the button view
+        final ImageView imageView2 = getView().findViewById(R.id.imageView2);
+        // set a onclick listener for when the button gets clicked
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            // Start new list activity
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(getActivity(), FullScreen.class);
+                mainIntent.putExtra("ImageId",imageView2.getId());
+                startActivity(mainIntent);
+            }
+        });
     }
 }
