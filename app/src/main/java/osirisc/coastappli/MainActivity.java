@@ -2,24 +2,19 @@ package osirisc.coastappli;
 
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
 
-import android.os.SystemClock;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.geojson.Feature;
@@ -55,6 +50,7 @@ import java.util.List;
 import osirisc.coastappli.Database.DatabaseAssistant;
 import osirisc.coastappli.Database.Marker;
 
+import static android.view.View.VISIBLE;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.literal;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.step;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.stop;
@@ -255,32 +251,25 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                     && listMarker.get(i).getLongitude() >= Longitude-errorList[zoom] && listMarker.get(i).getLongitude() <= Longitude+errorList[zoom]){
 
                 final Marker marker = databaseAssistant.findMarker(listMarker.get(i).getLatitude(), listMarker.get(i).getLongitude());
-                FloatingActionButton fab = findViewById(R.id.fab);
-                Snackbar snackbar = Snackbar
-                        .make(fab, marker.getNameBeach()+ " / "+marker.getNameTown(), Snackbar.LENGTH_LONG)
-                        .setAction("▶ " + getResources().getString(R.string.information)+" ◀", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent myIntent= new Intent(MainActivity.this, PlaceMainActivity.class);
-                                myIntent.putExtra("markerLatitude", marker.getLatitude());
-                                myIntent.putExtra("markerLongitude", marker.getLongitude());
-                                myIntent.putExtra("nameBeach", marker.getNameBeach());
-                                myIntent.putExtra("nameTown", marker.getNameTown());
-                                myIntent.putExtra("coastType", marker.getCoastType());
-                                myIntent.putExtra("INEC", marker.getINEC());
-                                myIntent.putExtra("erosionDistanceMesureBool", marker.getErosionDistanceMesureBool());
-                                MainActivity.this.startActivity(myIntent);
-                            }
-                        });
-
-                //PROBLEME: FAIRE REDESCENDRE LE FAB
-                fab.animate().translationY(-100);
-                snackbar.setActionTextColor(getResources().getColor(R.color.colorPrimaryLight));
-                View sbView = snackbar.getView();
-                TextView textView = sbView.findViewById(com.google.android.material.R.id.snackbar_text);
-                textView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-                sbView.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.white));
-                snackbar.show();
+                final Button buttonInformation = findViewById(R.id.informationButton);
+                buttonInformation.setText(marker.getNameBeach()+ " / "+marker.getNameTown());
+                buttonInformation.setTextColor(getResources().getColor(R.color.white));
+                buttonInformation.animate().translationY(-50);
+                buttonInformation.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v)
+                    {
+                        Intent myIntent= new Intent(MainActivity.this, PlaceMainActivity.class);
+                        myIntent.putExtra("markerLatitude", marker.getLatitude());
+                        myIntent.putExtra("markerLongitude", marker.getLongitude());
+                        myIntent.putExtra("nameBeach", marker.getNameBeach());
+                        myIntent.putExtra("nameTown", marker.getNameTown());
+                        myIntent.putExtra("coastType", marker.getCoastType());
+                        myIntent.putExtra("INEC", marker.getINEC());
+                        myIntent.putExtra("erosionDistanceMesureBool", marker.getErosionDistanceMesureBool());
+                        MainActivity.this.startActivity(myIntent);
+                    buttonInformation.animate().translationY(130);
+                    }
+                });
             }
             }
         return true;

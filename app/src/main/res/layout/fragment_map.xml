@@ -18,6 +18,19 @@
                 app:backgroundTint="@android:color/white"
                 app:srcCompat="@drawable/ic_location" />
 
+
+            <Button
+                android:id="@+id/informationButton"
+                android:layout_width="203dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:text="@string/information"
+                android:textColor="#FFFFFF"
+                android:translationY="50dp" />
+
+
         </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
