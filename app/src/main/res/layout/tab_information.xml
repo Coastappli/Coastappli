@@ -24,10 +24,11 @@
                     android:id="@+id/textViewNamePlace"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingEnd="40dp"
                     android:gravity="center"
+                    android:paddingEnd="40dp"
+                    android:text="Nom du lieu selectionné"
                     android:textColor="@color/colorPrimary"
-                    android:text="Nom du lieu selectionné" />
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/imageViewPlace"
