@@ -18,8 +18,8 @@
     <ImageView
         android:id="@+id/imageViewPhoto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"/>
+        android:layout_height="550dp"
+        android:paddingTop="5dp" />
 
     <LinearLayout
         android:id="@+id/NoteLayout"
@@ -54,4 +54,5 @@
         android:background="@drawable/button_background"
         android:textColor="#FFFFFF"
         android:text="@string/validate" />
+
 </LinearLayout>
