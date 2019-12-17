@@ -50,7 +50,6 @@ import java.util.List;
 import osirisc.coastappli.Database.DatabaseAssistant;
 import osirisc.coastappli.Database.Marker;
 
-import static android.view.View.VISIBLE;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.literal;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.step;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.stop;
@@ -70,10 +69,11 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Intent i = new Intent(MainActivity.this,
-                SplashScreen.class);
-        startActivity(i);
+        if (savedInstanceState==null){
+            Intent i = new Intent(MainActivity.this,
+                    SplashScreen.class);
+            startActivity(i);
+        }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

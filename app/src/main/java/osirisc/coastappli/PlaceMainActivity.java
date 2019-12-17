@@ -24,6 +24,7 @@ public class PlaceMainActivity extends AppCompatActivity {
     private String coastType;
     private String INEC;
     private int erosionDistanceMesureBool;
+    private static PlaceMainActivity instance;
 
     private int width;
 
@@ -82,6 +83,7 @@ public class PlaceMainActivity extends AppCompatActivity {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         width = displayMetrics.widthPixels;
+        instance=this;
     }
 
     public void distanceFunction(View view){
@@ -94,6 +96,9 @@ public class PlaceMainActivity extends AppCompatActivity {
         myIntent.putExtra("INEC", INEC);
         myIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
         PlaceMainActivity.this.startActivity(myIntent);
-        PlaceMainActivity.this.finish();
+    }
+
+    public static PlaceMainActivity getInstance() {
+        return instance;
     }
 }

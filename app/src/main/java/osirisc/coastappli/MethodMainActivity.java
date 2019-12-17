@@ -101,7 +101,6 @@ public class MethodMainActivity extends AppCompatActivity {
         DatabaseAssistant databaseAssistant = new DatabaseAssistant(this);
         databaseAssistant.addMesureErosionDistance(mesure);
         MethodMainActivity.this.finish();
-
         Intent myPlaceIntent= new Intent(this, PlaceMainActivity.class);
         myPlaceIntent.putExtra("markerLatitude", markerLatitude);
         myPlaceIntent.putExtra("markerLongitude", markerLongitude);
@@ -110,6 +109,7 @@ public class MethodMainActivity extends AppCompatActivity {
         myPlaceIntent.putExtra("coastType", coastType);
         myPlaceIntent.putExtra("INEC", INEC);
         myPlaceIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
+        PlaceMainActivity.getInstance().finish();
         MethodMainActivity.this.startActivity(myPlaceIntent);
     }
 

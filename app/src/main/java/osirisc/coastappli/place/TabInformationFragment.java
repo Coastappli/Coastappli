@@ -39,7 +39,7 @@ public class TabInformationFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
+    public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         // get the button view
         final ImageView imageViewPlace = getView().findViewById(R.id.imageViewPlace);
