@@ -17,7 +17,7 @@ import osirisc.coastappli.R;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_information_name, R.string.tab_trace_name, R.string.tab_indicators_name}; //en mettre autant que le nombre de pages voulues
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_information_name, R.string.tab_indicators_name, R.string.tab_trace_name}; //en mettre autant que le nombre de pages voulues
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -31,9 +31,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new TabInformationFragment();
             case 1:
-                return new TabTraceFragment();
-            case 2:
                 return new TabIndicatorsFragment();
+            case 2:
+                return new TabTraceFragment();
             default:
                 return null;
         }

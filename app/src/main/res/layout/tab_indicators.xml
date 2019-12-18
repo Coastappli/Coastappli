@@ -26,6 +26,7 @@
             android:textColor="#FFFFFF"
             android:button="@android:color/transparent"
             android:checked="true"
+            android:textStyle="bold"
             android:text="@string/erosion" />
 
         <RadioButton
@@ -36,6 +37,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:button="@android:color/transparent"
+            android:textStyle="bold"
             android:text="@string/submersion" />
     </RadioGroup>
 
@@ -82,7 +84,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:textColor="#000000"
                 android:text="@string/erosionSurface" />
 
             <Button
@@ -99,7 +100,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:textColor="#000000"
                 android:text="@string/erosionVolume" />
 
         </LinearLayout>
@@ -131,7 +131,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:textColor="#000000"
                 android:text="@string/submersionHauteur" />
 
             <Button
@@ -148,7 +147,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:textColor="#000000"
                 android:text="@string/submersionMigration" />
 
             <Button
@@ -165,7 +163,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:textColor="#000000"
                 android:text="@string/submersionPaquets" />
 
         </LinearLayout>
