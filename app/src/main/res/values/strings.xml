@@ -34,12 +34,12 @@
     <string name="submersion">Submersion</string>
 
     <string name="date">Date et heure</string>
-    <string name="distance">Distance</string>
-    <string name="surface">Surface</string>
-    <string name="volume">Volume</string>
-    <string name="hauteur">Hauteur d\'eau</string>
-    <string name="migration">Migration dunaire</string>
-    <string name="paquets">Paquets de mer</string>
+    <string name="photo">Prise de photo</string>
+    <string name="indicateur_erosion_2">indicateur_erosion_2</string>
+    <string name="indicateur_erosion_3">indicateur_erosion_3</string>
+    <string name="indicateur_submersion_1">indicateur_submersion_1</string>
+    <string name="indicateur_submersion_2">indicateur_submersion_2</string>
+    <string name="indicateur_submersion_3">indicateur_submersion_3</string>
 
     <string name="take_photo">Prendre la photo</string>
     <string name="validate">Valider</string>
@@ -55,7 +55,7 @@
 
     <string name="notes">Remarques</string>
 
-    <string name="erosionDistance">Repère - trait de côte \nVerticale sur borne de repère \nPrise de vue contrainte qualitative \nMesure verticale sur bas d\'estran</string>
+    <string name="erosionDistance">Prise de vue contrainte qualitative </string>
     <string name="erosionSurface">Pas encore implémenté</string>
     <string name="erosionVolume">Pas encore implémenté</string>
     <string name="submersionHauteur">Pas encore implémenté</string>

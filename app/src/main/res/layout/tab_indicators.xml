@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:paddingStart="5dp"
@@ -27,6 +28,7 @@
             android:button="@android:color/transparent"
             android:checked="true"
             android:textStyle="bold"
+            android:textSize="15sp"
             android:text="@string/erosion" />
 
         <RadioButton
@@ -38,6 +40,7 @@
             android:gravity="center"
             android:button="@android:color/transparent"
             android:textStyle="bold"
+            android:textSize="15sp"
             android:text="@string/submersion" />
     </RadioGroup>
 
@@ -45,7 +48,9 @@
         android:id="@+id/scrollViewErosion"
         app:layout_constraintTop_toBottomOf="@id/radioGroupErosionSubmersion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,32 +63,57 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="distanceFunction"
-                android:text="@string/distance"
-                android:background="@drawable/button_background"
-                android:textColor="#FFFFFF"/>
+                android:text="@string/photo"
+                android:background="@drawable/button_indicators_background"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="50dp"/>
 
-            <TextView
-                android:id="@+id/textViewErosionDistance"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="#000000"
-                android:text="@string/erosionDistance" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingRight="30dp"
+                    android:onClick="onClickPhotoIcon"
+                    app:srcCompat="@drawable/ic_camera" />
+
+                <TextView
+                    android:id="@+id/textViewErosionDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/erosionDistance"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/surfaceButton"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/surface"
-                android:background="@drawable/button_background"
-                android:textColor="#FFFFFF"/>
+                android:text="@string/indicateur_erosion_2"
+                android:background="@drawable/button_indicators_background"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="50dp"/>
 
             <TextView
                 android:id="@+id/textViewErosionSurface"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:gravity="center"
                 android:text="@string/erosionSurface" />
 
             <Button
@@ -91,15 +121,20 @@
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/volume"
-                android:background="@drawable/button_background"
-                android:textColor="#FFFFFF"/>
+                android:text="@string/indicateur_erosion_3"
+                android:background="@drawable/button_indicators_background"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="50dp"/>
 
             <TextView
                 android:id="@+id/textViewErosionVolume"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:gravity="center"
                 android:text="@string/erosionVolume" />
 
         </LinearLayout>
@@ -110,6 +145,8 @@
         app:layout_constraintTop_toBottomOf="@id/radioGroupErosionSubmersion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:visibility="gone">
 
         <LinearLayout
@@ -122,15 +159,20 @@
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hauteur"
-                android:background="@drawable/button_background"
-                android:textColor="#FFFFFF"/>
+                android:text="@string/indicateur_submersion_1"
+                android:background="@drawable/button_indicators_background"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="50dp"/>
 
             <TextView
                 android:id="@+id/textViewSubmersionHauteur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:gravity="center"
                 android:text="@string/submersionHauteur" />
 
             <Button
@@ -138,15 +180,20 @@
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/migration"
-                android:background="@drawable/button_background"
-                android:textColor="#FFFFFF"/>
+                android:text="@string/indicateur_submersion_2"
+                android:background="@drawable/button_indicators_background"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="50dp"/>
 
             <TextView
                 android:id="@+id/textViewSubmersionMigration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:gravity="center"
                 android:text="@string/submersionMigration" />
 
             <Button
@@ -154,15 +201,20 @@
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/paquets"
-                android:background="@drawable/button_background"
-                android:textColor="#FFFFFF"/>
+                android:text="@string/indicateur_submersion_3"
+                android:background="@drawable/button_indicators_background"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="50dp"/>
 
             <TextView
                 android:id="@+id/textViewSubmersionPaquets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:gravity="center"
                 android:text="@string/submersionPaquets" />
 
         </LinearLayout>

@@ -1,6 +1,8 @@
 package osirisc.coastappli;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -11,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.Button;
 
 import osirisc.coastappli.Database.DatabaseAssistant;
 import osirisc.coastappli.Database.Marker;
@@ -79,12 +82,12 @@ public class PlaceMainActivity extends AppCompatActivity {
             INEC = extras.getString("INEC");
             erosionDistanceMesureBool = extras.getInt("erosionDistanceMesureBool");
         }
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         width = displayMetrics.widthPixels;
         instance=this;
     }
+
 
     public void distanceFunction(View view){
         Intent myIntent= new Intent(this, MethodMainActivity.class);
@@ -101,4 +104,26 @@ public class PlaceMainActivity extends AppCompatActivity {
     public static PlaceMainActivity getInstance() {
         return instance;
     }
+
+    public void onClickPhotoIcon(View view) {
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+
+        // set title
+        alertDialogBuilder.setTitle("L'appareil photo est requis");
+
+        // set dialog message
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        dialog.cancel();
+                    }
+                });
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+        }
 }

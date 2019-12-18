@@ -1,6 +1,5 @@
 package osirisc.coastappli.place;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +36,7 @@ public class TabIndicatorsFragment extends Fragment {
         radioButtonErosion.setWidth(((((PlaceMainActivity)getActivity()).getWidth())/2));
         final RadioButton radioButtonSubmersion = root.findViewById(R.id.radioButtonSubmersion);
         radioButtonSubmersion.setWidth(((((PlaceMainActivity)getActivity()).getWidth())/2));
-        radioButtonErosion.setTextColor(getResources().getColor(R.color.holo_red_light));
+        radioButtonErosion.setTextColor(getResources().getColor(R.color.colorPrimaryLight));
         radioButtonSubmersion.setTextColor(getResources().getColor(R.color.grey));
 
         radioGroupErosionSubmersion.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
@@ -45,13 +44,13 @@ public class TabIndicatorsFragment extends Fragment {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.radioButtonErosion){
-                    radioButtonErosion.setTextColor(getResources().getColor(R.color.holo_red_light));
+                    radioButtonErosion.setTextColor(getResources().getColor(R.color.colorPrimaryLight));
                     radioButtonSubmersion.setTextColor(getResources().getColor(R.color.grey));
                     scrollViewErosion.setVisibility(VISIBLE);
                     scrollViewSubmersion.setVisibility(GONE);
                 }
                 if (checkedId == R.id.radioButtonSubmersion){
-                    radioButtonSubmersion.setTextColor(getResources().getColor(R.color.holo_red_light));
+                    radioButtonSubmersion.setTextColor(getResources().getColor(R.color.colorPrimaryLight));
                     radioButtonErosion.setTextColor(getResources().getColor(R.color.grey));
                     scrollViewErosion.setVisibility(GONE);
                     scrollViewSubmersion.setVisibility(VISIBLE);
@@ -64,7 +63,6 @@ public class TabIndicatorsFragment extends Fragment {
             distanceButton.setVisibility(GONE);
             textViewErosionDistance.setVisibility(GONE);
         }
-
         return root;
     }
 

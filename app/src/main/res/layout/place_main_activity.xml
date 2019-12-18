@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-            app:tabSelectedTextColor="@color/holo_red_light"
+            app:tabSelectedTextColor="@color/colorPrimaryLight"
             app:tabIndicatorColor="@color/colorPrimary" />
     </com.google.android.material.appbar.AppBarLayout>
 
