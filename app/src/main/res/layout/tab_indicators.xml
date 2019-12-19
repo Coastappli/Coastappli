@@ -8,40 +8,41 @@
     android:paddingEnd="5dp"
     android:layout_height="match_parent">
 
+
     <RadioGroup
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
         android:id="@+id/radioGroupErosionSubmersion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="5dp">
 
         <RadioButton
             android:id="@+id/radioButtonErosion"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:background="@drawable/radiobutton_background"
-            android:textColor="#FFFFFF"
             android:button="@android:color/transparent"
             android:checked="true"
-            android:textStyle="bold"
+            android:gravity="center"
+            android:text="@string/erosion"
+            android:textColor="#FFFFFF"
             android:textSize="15sp"
-            android:text="@string/erosion" />
+            android:textStyle="bold" />
 
         <RadioButton
-            android:background="@drawable/radiobutton_background"
-            android:textColor="#FFFFFF"
             android:id="@+id/radioButtonSubmersion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:background="@drawable/radiobutton_background"
             android:button="@android:color/transparent"
-            android:textStyle="bold"
+            android:gravity="center"
+            android:text="@string/submersion"
+            android:textColor="#FFFFFF"
             android:textSize="15sp"
-            android:text="@string/submersion" />
+            android:textStyle="bold" />
     </RadioGroup>
 
     <ScrollView
@@ -57,85 +58,157 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/distanceButton"
-                style="@style/Widget.AppCompat.Button"
+            <TextView
+                android:id="@+id/textViewIndicatorsErosionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="distanceFunction"
-                android:text="@string/photo"
-                android:background="@drawable/button_indicators_background"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:text="@string/indicatorsErosionTitle"
                 android:textColor="@color/colorPrimary"
-                android:layout_marginTop="50dp"/>
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp">
+                android:layout_gravity="center"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="50dp">
 
                 <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/imageViewGreenCircleIcon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:paddingRight="30dp"
-                    android:onClick="onClickPhotoIcon"
-                    app:srcCompat="@drawable/ic_camera" />
+                    android:layout_marginRight="10dp"
+                    android:onClick="onClickGreenCircleIcon"
+                    app:srcCompat="@drawable/ic_green_circle" />
 
-                <TextView
-                    android:id="@+id/textViewErosionDistance"
+                <Button
+                    android:id="@+id/distanceButton"
+                    style="@style/Widget.AppCompat.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/erosionDistance"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/button_indicators_background"
+                    android:onClick="distanceFunction"
+                    android:text="@string/photo"
+                    android:textColor="@color/colorPrimary" />
+
+                <ImageView
+                    android:id="@+id/imageViewQuestionIcon1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:onClick="onClickQuestionIconPhoto"
+                    app:srcCompat="@drawable/ic_question" />
+
             </LinearLayout>
 
-            <Button
-                android:id="@+id/surfaceButton"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/imageViewCameraIcon"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/indicateur_erosion_2"
-                android:background="@drawable/button_indicators_background"
-                android:textColor="@color/colorPrimary"
-                android:layout_marginTop="50dp"/>
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:onClick="onClickPhotoIcon"
+                app:srcCompat="@drawable/ic_camera" />
 
-            <TextView
-                android:id="@+id/textViewErosionSurface"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:text="@string/erosionSurface" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="50dp">
 
-            <Button
-                android:id="@+id/volumeButton"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/indicateur_erosion_3"
-                android:background="@drawable/button_indicators_background"
-                android:textColor="@color/colorPrimary"
-                android:layout_marginTop="50dp"/>
+                <ImageView
+                    android:id="@+id/imageViewYellowCircleIcon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:onClick="onClickYellowCircleIcon"
+                    app:srcCompat="@drawable/ic_yellow_circle" />
 
-            <TextView
-                android:id="@+id/textViewErosionVolume"
-                android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/mesure_erosion_2"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/button_indicators_background"
+                    android:text="Mesure érosion 2"
+                    android:textColor="@color/colorPrimary" />
+
+                <ImageView
+                    android:id="@+id/imageViewQuestionIcon2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:onClick="onClickQuestionIconNotImplemented"
+                    app:srcCompat="@drawable/ic_question" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageViewLocationIcon"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:text="@string/erosionVolume" />
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:onClick="onClicklocationIcon"
+                app:srcCompat="@drawable/ic_location_marker" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="50dp">
+
+                <ImageView
+                    android:id="@+id/imageViewRedCircleIcon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:onClick="onClickRedCircleIcon"
+                    app:srcCompat="@drawable/ic_red_circle" />
+
+                <Button
+                    android:id="@+id/mesure_erosion_3"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/button_indicators_background"
+                    android:text="Mesure érosion 3"
+                    android:textColor="@color/colorPrimary" />
+
+                <ImageView
+                    android:id="@+id/imageViewQuestionIcon3"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:onClick="onClickQuestionIconNotImplemented"
+                    app:srcCompat="@drawable/ic_question" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageViewMetreIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:onClick="onClickMetreIcon"
+                app:srcCompat="@drawable/ic_metre" />
 
         </LinearLayout>
     </ScrollView>
@@ -150,75 +223,162 @@
         android:visibility="gone">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/hauteurButton"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/indicateur_submersion_1"
-                android:background="@drawable/button_indicators_background"
-                android:textColor="@color/colorPrimary"
-                android:layout_marginTop="50dp"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textViewSubmersionHauteur"
+                android:id="@+id/textViewIndicatorsSubmersionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp"
-                android:textStyle="bold"
                 android:gravity="center"
-                android:text="@string/submersionHauteur" />
-
-            <Button
-                android:id="@+id/migrationButton"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/indicateur_submersion_2"
-                android:background="@drawable/button_indicators_background"
+                android:paddingTop="20dp"
+                android:text="@string/indicatorsSubmersionTitle"
                 android:textColor="@color/colorPrimary"
-                android:layout_marginTop="50dp"/>
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textViewSubmersionMigration"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:text="@string/submersionMigration" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="50dp">
 
-            <Button
-                android:id="@+id/paquetsButton"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/indicateur_submersion_3"
-                android:background="@drawable/button_indicators_background"
-                android:textColor="@color/colorPrimary"
-                android:layout_marginTop="50dp"/>
+                <ImageView
+                    android:id="@+id/imageViewGreenCircleIconbis"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:onClick="onClickGreenCircleIcon"
+                    app:srcCompat="@drawable/ic_green_circle" />
 
-            <TextView
-                android:id="@+id/textViewSubmersionPaquets"
-                android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/mesure_submersion_1"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/button_indicators_background"
+                    android:text="Mesure submersion 1"
+                    android:textColor="@color/colorPrimary" />
+
+                <ImageView
+                    android:id="@+id/imageViewQuestionIcon4"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:onClick="onClickQuestionIconNotImplemented"
+                    app:srcCompat="@drawable/ic_question" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageViewCameraIconbis"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:text="@string/submersionPaquets" />
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:onClick="onClickPhotoIcon"
+                app:srcCompat="@drawable/ic_camera" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="50dp">
+
+                <ImageView
+                    android:id="@+id/imageViewYellowCircleIconbis"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:onClick="onClickYellowCircleIcon"
+                    app:srcCompat="@drawable/ic_yellow_circle" />
+
+                <Button
+                    android:id="@+id/mesure_submersion_2"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/button_indicators_background"
+                    android:text="Mesure submersion 2"
+                    android:textColor="@color/colorPrimary" />
+
+                <ImageView
+                    android:id="@+id/imageViewQuestionIcon5"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:onClick="onClickQuestionIconNotImplemented"
+                    app:srcCompat="@drawable/ic_question" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageViewLocationIconbis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:onClick="onClicklocationIcon"
+                app:srcCompat="@drawable/ic_location_marker" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="50dp">
+
+                <ImageView
+                    android:id="@+id/imageViewRedCircleIconbis"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:onClick="onClickRedCircleIcon"
+                    app:srcCompat="@drawable/ic_red_circle" />
+
+                <Button
+                    android:id="@+id/mesure_submersion_3"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/button_indicators_background"
+                    android:text="Mesure submersion 3"
+                    android:textColor="@color/colorPrimary" />
+
+                <ImageView
+                    android:id="@+id/imageViewQuestionIcon6"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:onClick="onClickQuestionIconNotImplemented"
+                    app:srcCompat="@drawable/ic_question" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageViewMetreIconbis"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:onClick="onClickMetreIcon"
+                app:srcCompat="@drawable/ic_metre" />
 
         </LinearLayout>
-
     </ScrollView>
 
 

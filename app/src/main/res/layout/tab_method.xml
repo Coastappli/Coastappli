@@ -30,10 +30,40 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textViewMethodDistance1"
+                android:id="@+id/textViewMethodDistanceGoalTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/methodDistance1"
+                android:text="@string/methodDistanceGoalTitle"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/textViewMethodDistanceGoalMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/methodDistanceGoalMessage"
+                android:paddingBottom="10dp"/>
+            <TextView
+                android:id="@+id/textViewMethodDistanceHowTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/methodDistanceHowTitle"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/textViewMethodDistanceHowMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/methodDistanceHowMessage"
+                android:paddingBottom="10dp"/>
+            <TextView
+                android:id="@+id/textViewMethodDistanceWhenTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/methodDistanceWhenTitle"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/textViewMethodDistanceWhenMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/methodDistanceWhenMessage"
                 android:paddingBottom="10dp"/>
 
             <TextView
@@ -41,6 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/methodDistance2"
+                android:textStyle="bold"
                 android:paddingBottom="10dp"/>
 
             <ImageView
@@ -117,6 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/methodDistance3"
+                android:textStyle="bold"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"/>
 
@@ -138,6 +170,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingTop="5dp"
+                    android:layout_marginRight="5dp"
                     app:srcCompat="@drawable/ic_light" />
 
                 <TextView

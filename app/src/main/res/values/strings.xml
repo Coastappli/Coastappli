@@ -24,16 +24,16 @@
     <string name="tab_input_name">Saisie</string>
     <string name="tab_method_name">Méthode</string>
 
-    <string name="news">Actualités</string>
-    <string name="tides">Marées</string>
-    <string name="coastType">Types de côte</string>
-    <string name="INEC">INEC</string>
+    <string name="news">Actualités :</string>
+    <string name="tides">Marées :</string>
+    <string name="coastType">Types de côte :</string>
+    <string name="INEC">INEC :</string>
 
 
     <string name="erosion">Erosion</string>
     <string name="submersion">Submersion</string>
 
-    <string name="date">Date et heure</string>
+    <string name="date">Date et heure :</string>
     <string name="photo">Prise de photo</string>
     <string name="indicateur_erosion_2">indicateur_erosion_2</string>
     <string name="indicateur_erosion_3">indicateur_erosion_3</string>
@@ -43,17 +43,16 @@
 
     <string name="take_photo">Prendre la photo</string>
     <string name="validate">Valider</string>
-    <string name="mesureErosionDistance">Mesure Erosion Distance</string>
-    <string name="mesureErosionSurface">Mesure Erosion Surface</string>
-    <string name="mesureErosionVolume">Mesure Erosion Volume</string>
-    <string name="mesureSubmersionHauteur">Mesure Submersion Hauteur d\'eau</string>
-    <string name="mesureSubmersionMigration">Mesure Submersion Migration Dunaire</string>
-    <string name="mesureSubmersionPaquets">Mesure Submersion Paquets De Mer</string>
+    <string name="mesureErosionPhoto">Erosion - Prise de photo</string>
+    <string name="mesureErosion2">Mesure Erosion 2</string>
+    <string name="mesureErosion3">Mesure Erosion 3</string>
+    <string name="mesureSubmersion1">Mesure Submersion 1</string>
+    <string name="mesureSubmersion2">Mesure Submersion 2</string>
+    <string name="mesureSubmersion3">Mesure Submersion 3</string>
 
-    <string name="user">Utilisateur</string>
-    <string name="mesure">Mesure</string>
-
-    <string name="notes">Remarques</string>
+    <string name="user">Utilisateur :</string>
+    <string name="mesure">Mesure :</string>
+    <string name="notes">Remarques :</string>
 
     <string name="erosionDistance">Prise de vue contrainte qualitative </string>
     <string name="erosionSurface">Pas encore implémenté</string>
@@ -63,7 +62,12 @@
     <string name="submersionPaquets">Pas encore implémenté</string>
 
     <string name="methodDistanceTitle">Prise de vue contrainte\nqualitative </string>
-    <string name="methodDistance1">A faire à marée basse\nDurée: 5 minutes</string>
+    <string name="methodDistanceGoalTitle">Quel est le but ?</string>
+    <string name="methodDistanceGoalMessage">→ photographier le trait de côte afin d’appréhender son évolution au fur et à mesure des photos envoyées</string>
+    <string name="methodDistanceHowTitle">Comment prendre la mesure ?</string>
+    <string name="methodDistanceHowMessage">→ outils : appareil photo</string>
+    <string name="methodDistanceWhenTitle">Quand réaliser cette méthode ?</string>
+    <string name="methodDistanceWhenMessage">→ durée : 5 minutes\n→ à faire à marée basse</string>
     <string name="methodDistance2">- Photographie désirée:</string>
     <string name="methodDistance3">- Position conseillée pour la prise de vue:</string>
     <string name="methodDistance4">Pour mieux appréhender les évolutions rapides\n dues aux tempêtes, il est pertinent de réaliser\n des prises de vue post-évènement également.</string>
@@ -75,4 +79,9 @@
     <string name="notImplemented">A implémenter</string>
 
     <string name="information">Information</string>
+
+    <string name="traceTitle">« Voici les dernières mesures renseignées dans ce lieu »</string>
+    <string name="indicatorsErosionTitle">« Voici les différentes mesures d\'érosion pouvant\nêtre prises dans ce lieu »</string>
+    <string name="indicatorsSubmersionTitle">« Voici les différentes mesures de submersion pouvant\nêtre prises dans ce lieu »</string>
+
 </resources>
