@@ -80,8 +80,8 @@
 
     <string name="information">Information</string>
 
-    <string name="traceTitle">« Voici les dernières mesures renseignées dans ce lieu »</string>
-    <string name="indicatorsErosionTitle">« Voici les différentes mesures d\'érosion pouvant\nêtre prises dans ce lieu »</string>
-    <string name="indicatorsSubmersionTitle">« Voici les différentes mesures de submersion pouvant\nêtre prises dans ce lieu »</string>
+    <string name="traceTitle">Voici les dernières mesures renseignées dans ce lieu</string>
+    <string name="indicatorsErosionTitle">Voici les différentes mesures d\'érosion pouvant\nêtre prises dans ce lieu</string>
+    <string name="indicatorsSubmersionTitle">Voici les différentes mesures de submersion pouvant\nêtre prises dans ce lieu</string>
 
 </resources>
