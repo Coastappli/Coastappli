@@ -26,6 +26,7 @@
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
                 android:textSize="20sp"
+                android:padding="15dp"
                 tools:layout_editor_absoluteX="10dp"
                 tools:layout_editor_absoluteY="10dp" />
 
