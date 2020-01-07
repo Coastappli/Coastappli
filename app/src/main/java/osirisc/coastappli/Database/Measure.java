@@ -1,6 +1,6 @@
 package osirisc.coastappli.Database;
 
-public abstract class Mesure {
+public abstract class Measure {
 
     private Double markerLatitude;
     private Double markerLongitude;
@@ -9,7 +9,7 @@ public abstract class Mesure {
     private String user;
     private String notes;
 
-    public Mesure() {
+    public Measure() {
     }
 
     public Double getMarkerLatitude() {

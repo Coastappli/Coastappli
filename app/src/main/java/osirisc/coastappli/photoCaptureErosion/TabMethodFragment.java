@@ -18,12 +18,12 @@ import androidx.fragment.app.Fragment;
 import com.github.chrisbanes.photoview.PhotoView;
 
 import osirisc.coastappli.Database.DatabaseAssistant;
-import osirisc.coastappli.Database.MethodErosionDistance;
+import osirisc.coastappli.Database.MethodErosionPhotoCapture;
 import osirisc.coastappli.PhotoCaptureErosionMainActivity;
 import osirisc.coastappli.R;
 
 public class TabMethodFragment extends Fragment {
-    private MethodErosionDistance method;
+    private MethodErosionPhotoCapture method;
 
     @Override
     public View onCreateView(

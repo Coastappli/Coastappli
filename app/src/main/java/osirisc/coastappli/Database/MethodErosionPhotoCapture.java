@@ -1,6 +1,6 @@
 package osirisc.coastappli.Database;
 
-public class MethodErosionDistance {
+public class MethodErosionPhotoCapture {
 
     private Double markerLatitude;
     private Double markerLongitude;
@@ -10,9 +10,9 @@ public class MethodErosionDistance {
     private String clue2;
     private String clue3;
 
-    public MethodErosionDistance(){}
+    public MethodErosionPhotoCapture(){}
 
-    public MethodErosionDistance(Double markerLatitude, Double markerLongitude, byte[] photo, byte[] photoPerson, String clue1, String clue2, String clue3) {
+    public MethodErosionPhotoCapture(Double markerLatitude, Double markerLongitude, byte[] photo, byte[] photoPerson, String clue1, String clue2, String clue3) {
         this.markerLatitude = markerLatitude;
         this.markerLongitude = markerLongitude;
         this.photo = photo;

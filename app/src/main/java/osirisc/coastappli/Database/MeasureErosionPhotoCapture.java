@@ -1,9 +1,9 @@
 package osirisc.coastappli.Database;
 
-public class MesureErosionDistance extends Mesure {
+public class MeasureErosionPhotoCapture extends Measure {
     private byte[] photo;
 
-    public MesureErosionDistance() { super();    }
+    public MeasureErosionPhotoCapture() { super();    }
 
     public byte[] getPhoto() { return photo;    }
 

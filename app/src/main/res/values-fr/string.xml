@@ -43,15 +43,15 @@
 
     <string name="take_photo">Prendre la photo</string>
     <string name="validate">Valider</string>
-    <string name="mesureErosionPhoto">Erosion - Prise de photo</string>
-    <string name="mesureErosion2">Mesure Erosion 2</string>
-    <string name="mesureErosion3">Mesure Erosion 3</string>
-    <string name="mesureSubmersion1">Mesure Submersion 1</string>
-    <string name="mesureSubmersion2">Mesure Submersion 2</string>
-    <string name="mesureSubmersion3">Mesure Submersion 3</string>
+    <string name="measureErosionPhoto">Erosion - Prise de photo</string>
+    <string name="measureErosion2">Mesure Erosion 2</string>
+    <string name="measureErosion3">Mesure Erosion 3</string>
+    <string name="measureSubmersion1">Mesure Submersion 1</string>
+    <string name="measureSubmersion2">Mesure Submersion 2</string>
+    <string name="measureSubmersion3">Mesure Submersion 3</string>
 
     <string name="user">Utilisateur :</string>
-    <string name="mesure">Mesure :</string>
+    <string name="measure">Mesure :</string>
     <string name="notes">Remarques :</string>
 
     <string name="erosionDistance">Prise de vue contrainte qualitative </string>

@@ -37,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@string/mesureErosionPhoto"
+                    android:text="@string/measureErosionPhoto"
                     android:textColor="@color/colorPrimary"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -95,7 +95,7 @@
                         android:gravity="center_vertical"
                         android:padding="5dp"
                         android:textColor="@color/colorPrimary"
-                        android:text="@string/mesure" />
+                        android:text="@string/measure" />
 
                     <ImageView
                         android:id="@+id/imageView2"
@@ -143,7 +143,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@string/mesureErosion2"
+                    android:text="@string/measureErosion2"
                     android:textSize="17sp"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />
@@ -247,7 +247,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@string/mesureErosion2"
+                    android:text="@string/measureErosion2"
                     android:textSize="17sp"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />
@@ -350,7 +350,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@string/mesureSubmersion1"
+                    android:text="@string/measureSubmersion1"
                     android:textSize="17sp"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />
@@ -453,7 +453,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@string/mesureSubmersion2"
+                    android:text="@string/measureSubmersion2"
                     android:textSize="17sp"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />
@@ -556,7 +556,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@string/mesureSubmersion3"
+                    android:text="@string/measureSubmersion3"
                     android:textSize="17sp"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />

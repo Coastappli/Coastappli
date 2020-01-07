@@ -42,15 +42,15 @@
 
     <string name="take_photo">Take photo</string>
     <string name="validate">Validate</string>
-    <string name="mesureErosionPhoto">Erosion - Photo capture</string>
-    <string name="mesureErosion2">Mesure Erosion 2</string>
-    <string name="mesureErosion3">Mesure Erosion 3</string>
-    <string name="mesureSubmersion1">Mesure Submersion 1</string>
-    <string name="mesureSubmersion2">Mesure Submersion 2</string>
-    <string name="mesureSubmersion3">Mesure Submersion 3</string>
+    <string name="measureErosionPhoto">Erosion - Photo capture</string>
+    <string name="measureErosion2">Measure Erosion 2</string>
+    <string name="measureErosion3">Measure Erosion 3</string>
+    <string name="measureSubmersion1">Measure Submersion 1</string>
+    <string name="measureSubmersion2">Measure Submersion 2</string>
+    <string name="measureSubmersion3">Measure Submersion 3</string>
 
     <string name="user">User :</string>
-    <string name="mesure">Mesure :</string>
+    <string name="measure">Measure :</string>
     <string name="notes">Notes :</string>
 
     <string name="erosionDistance">Constrained and qualitative photo capture </string>
@@ -63,7 +63,7 @@
     <string name="methodDistanceTitle">Constrained and qualitative \nphoto capture </string>
     <string name="methodDistanceGoalTitle">What is the goal?</string>
     <string name="methodDistanceGoalMessage">→ photograph the coastline in order to better apprehend its evolution as photos are sent</string>
-    <string name="methodDistanceHowTitle">How to take the mesure?</string>
+    <string name="methodDistanceHowTitle">How to take the measure?</string>
     <string name="methodDistanceHowMessage">→ tools : camera</string>
     <string name="methodDistanceWhenTitle">When to do this task?</string>
     <string name="methodDistanceWhenMessage">→ duration : 5 minutes\n→ to do as the tide is low</string>
@@ -80,8 +80,8 @@
     <string name="information">Information</string>
 
     <string name="traceTitle">Here are the last measures taken in this location</string>
-    <string name="indicatorsErosionTitle">Here are the different erosion mesures that \ncan be taken in this location</string>
-    <string name="indicatorsSubmersionTitle">Here are the different submersion mesures that \ncan be taken in this location</string>
+    <string name="indicatorsErosionTitle">Here are the different erosion measures that \ncan be taken in this location</string>
+    <string name="indicatorsSubmersionTitle">Here are the different submersion measures that \ncan be taken in this location</string>
 
     <string name="cameraIcon">The camera is needed</string>
     <string name="locationIcon">Localisation is needed</string>

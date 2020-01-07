@@ -28,7 +28,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import osirisc.coastappli.Database.DatabaseAssistant;
-import osirisc.coastappli.Database.MesureErosionDistance;
+import osirisc.coastappli.Database.MeasureErosionPhotoCapture;
 import osirisc.coastappli.photoCaptureErosion.SectionsPagerAdapterMethod;
 
 import static android.view.View.VISIBLE;
@@ -180,7 +180,7 @@ public class PhotoCaptureErosionMainActivity extends AppCompatActivity {
      */
     public void validate(View view){
         // We create the new measure
-        MesureErosionDistance mesure = new MesureErosionDistance();
+        MeasureErosionPhotoCapture mesure = new MeasureErosionPhotoCapture();
         mesure.setMarkerLatitude(markerLatitude);
         mesure.setMarkerLongitude(markerLongitude);
         mesure.setDate(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
