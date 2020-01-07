@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/nav_history"
         android:name="osirisc.coastappli.ui.history.HistoryFragment"
-        android:label="@string/menu_historique"
+        android:label="@string/menu_history"
         tools:layout="@layout/fragment_history" />
 
     <fragment

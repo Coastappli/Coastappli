@@ -1,4 +1,4 @@
-package osirisc.coastappli.place;
+package osirisc.coastappli.location;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import android.widget.ScrollView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import osirisc.coastappli.PlaceMainActivity;
+import osirisc.coastappli.LocationMainActivity;
 import osirisc.coastappli.R;
 
 import static android.view.View.GONE;
@@ -32,9 +32,9 @@ public class TabIndicatorsFragment extends Fragment {
         scrollViewErosion = root.findViewById(R.id.scrollViewErosion);
         scrollViewSubmersion = root.findViewById(R.id.scrollViewSubmersion);
         final RadioButton radioButtonErosion = root.findViewById(R.id.radioButtonErosion);
-        radioButtonErosion.setWidth(((((PlaceMainActivity)getActivity()).getWidth())/2));
+        radioButtonErosion.setWidth(((((LocationMainActivity)getActivity()).getWidth())/2));
         final RadioButton radioButtonSubmersion = root.findViewById(R.id.radioButtonSubmersion);
-        radioButtonSubmersion.setWidth(((((PlaceMainActivity)getActivity()).getWidth())/2));
+        radioButtonSubmersion.setWidth(((((LocationMainActivity)getActivity()).getWidth())/2));
         radioButtonErosion.setTextColor(getResources().getColor(R.color.colorPrimaryLight));
         radioButtonSubmersion.setTextColor(getResources().getColor(R.color.grey));
 
@@ -56,7 +56,7 @@ public class TabIndicatorsFragment extends Fragment {
                 }
             }
         });
-        if (((PlaceMainActivity)getActivity()).getErosionDistanceMesureBool()== 0){
+        if (((LocationMainActivity)getActivity()).getErosionPhotoCaptureBool()== 0){
             Button distanceButton = root.findViewById(R.id.distanceButton);
             distanceButton.setVisibility(GONE);
         }

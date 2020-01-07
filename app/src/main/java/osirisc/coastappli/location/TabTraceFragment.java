@@ -1,4 +1,4 @@
-package osirisc.coastappli.place;
+package osirisc.coastappli.location;
 
 import android.app.AlertDialog;
 import android.graphics.Bitmap;
@@ -19,7 +19,7 @@ import com.github.chrisbanes.photoview.PhotoView;
 
 import osirisc.coastappli.Database.DatabaseAssistant;
 import osirisc.coastappli.Database.MesureErosionDistance;
-import osirisc.coastappli.PlaceMainActivity;
+import osirisc.coastappli.LocationMainActivity;
 import osirisc.coastappli.R;
 
 public class TabTraceFragment extends Fragment {
@@ -32,7 +32,7 @@ public class TabTraceFragment extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.tab_trace, container, false);
         DatabaseAssistant databaseAssistant = new DatabaseAssistant(getActivity());
-        mesure = databaseAssistant.findMesureErosionDistance(((PlaceMainActivity)getActivity()).getMarkerLatitude(), ((PlaceMainActivity)getActivity()).getMarkerLongitude());
+        mesure = databaseAssistant.findMesureErosionDistance(((LocationMainActivity)getActivity()).getMarkerLatitude(), ((LocationMainActivity)getActivity()).getMarkerLongitude());
         if (mesure!=null) {
             TextView textViewDateFill = root.findViewById(R.id.textViewDateFill);
             TextView textViewUserFill = root.findViewById(R.id.textViewUserFill);

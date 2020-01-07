@@ -6,82 +6,89 @@
     <string name="nav_header_subtitle">Osirisc</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <string name="user_location_permission_not_granted">La localisation n\'est pas permis.</string>
-    <string name="user_location_permission_explanation">La localisation est impossible.</string>
-
+    <string name="user_localisation_permission_not_granted">The localisation is not granted.</string>
+    <string name="user_localisation_permission_explanation">The localisation is impossible.</string>
 
     <string name="menu_log_in">Connexion</string>
-    <string name="menu_carte">Carte</string>
-    <string name="menu_historique">Historique</string>
+    <string name="menu_carte">Map</string>
+    <string name="menu_history">History</string>
     <string name="menu_badges">Badges</string>
-    <string name="menu_manage">Paramètres</string>
-    <string name="menu_log_out">Déconnexion</string>
-    <string name="menu_profile">Profil</string>
+    <string name="menu_manage">Manage</string>
+    <string name="menu_log_out">Log out</string>
+    <string name="menu_profile">Profile</string>
 
-    <string name="tab_information_name">Informations</string>
-    <string name="tab_trace_name">Suivi</string>
-    <string name="tab_indicators_name">Indicateurs</string>
-    <string name="tab_input_name">Saisie</string>
-    <string name="tab_method_name">Méthode</string>
+    <string name="tab_information_name">Information</string>
+    <string name="tab_trace_name">Trace</string>
+    <string name="tab_indicators_name">Indicators</string>
+    <string name="tab_input_name">Input</string>
+    <string name="tab_method_name">Method</string>
 
-    <string name="news">Actualités :</string>
-    <string name="tides">Marées :</string>
-    <string name="coastType">Types de côte :</string>
+    <string name="news">News :</string>
+    <string name="tides">Tides :</string>
+    <string name="coastType">Coast type :</string>
     <string name="INEC">INEC :</string>
 
 
     <string name="erosion">Erosion</string>
     <string name="submersion">Submersion</string>
 
-    <string name="date">Date et heure :</string>
-    <string name="photo">Prise de photo</string>
-    <string name="indicateur_erosion_2">indicateur_erosion_2</string>
-    <string name="indicateur_erosion_3">indicateur_erosion_3</string>
-    <string name="indicateur_submersion_1">indicateur_submersion_1</string>
-    <string name="indicateur_submersion_2">indicateur_submersion_2</string>
-    <string name="indicateur_submersion_3">indicateur_submersion_3</string>
+    <string name="date">Date and time :</string>
+    <string name="photo">Photo capture</string>
+    <string name="indicateur_erosion_2">indicator_erosion_2</string>
+    <string name="indicateur_erosion_3">indicator_erosion_3</string>
+    <string name="indicateur_submersion_1">indicator_submersion_1</string>
+    <string name="indicateur_submersion_2">indicator_submersion_2</string>
+    <string name="indicateur_submersion_3">indicator_submersion_3</string>
 
-    <string name="take_photo">Prendre la photo</string>
-    <string name="validate">Valider</string>
-    <string name="mesureErosionPhoto">Erosion - Prise de photo</string>
+    <string name="take_photo">Take photo</string>
+    <string name="validate">Validate</string>
+    <string name="mesureErosionPhoto">Erosion - Photo capture</string>
     <string name="mesureErosion2">Mesure Erosion 2</string>
     <string name="mesureErosion3">Mesure Erosion 3</string>
     <string name="mesureSubmersion1">Mesure Submersion 1</string>
     <string name="mesureSubmersion2">Mesure Submersion 2</string>
     <string name="mesureSubmersion3">Mesure Submersion 3</string>
 
-    <string name="user">Utilisateur :</string>
-    <string name="mesure">Mesure :</string>
-    <string name="notes">Remarques :</string>
+    <string name="user">User :</string>
+    <string name="mesure">Notes :</string>
 
-    <string name="erosionDistance">Prise de vue contrainte qualitative </string>
-    <string name="erosionSurface">Pas encore implémenté</string>
-    <string name="erosionVolume">Pas encore implémenté</string>
-    <string name="submersionHauteur">Pas encore implémenté</string>
-    <string name="submersionMigration">Pas encore implémenté</string>
-    <string name="submersionPaquets">Pas encore implémenté</string>
+    <string name="erosionDistance">Constrained and qualitative photo capture </string>
+    <string name="erosionSurface">Not yet implemented</string>
+    <string name="erosionVolume">Not yet implementedé</string>
+    <string name="submersionHauteur">Not yet implemented</string>
+    <string name="submersionMigration">Not yet implemented</string>
+    <string name="submersionPaquets">Not yet implemented</string>
 
-    <string name="methodDistanceTitle">Prise de vue contrainte\nqualitative </string>
-    <string name="methodDistanceGoalTitle">Quel est le but ?</string>
-    <string name="methodDistanceGoalMessage">→ photographier le trait de côte afin d’appréhender son évolution au fur et à mesure des photos envoyées</string>
-    <string name="methodDistanceHowTitle">Comment prendre la mesure ?</string>
-    <string name="methodDistanceHowMessage">→ outils : appareil photo</string>
-    <string name="methodDistanceWhenTitle">Quand réaliser cette méthode ?</string>
-    <string name="methodDistanceWhenMessage">→ durée : 5 minutes\n→ à faire à marée basse</string>
-    <string name="methodDistance2">- Photographie désirée:</string>
-    <string name="methodDistance3">- Position conseillée pour la prise de vue:</string>
-    <string name="methodDistance4">Pour mieux appréhender les évolutions rapides\n dues aux tempêtes, il est pertinent de réaliser\n des prises de vue post-évènement également.</string>
+    <string name="methodDistanceTitle">Constrained and qualitative \nphoto capture </string>
+    <string name="methodDistanceGoalTitle">What is the goal?</string>
+    <string name="methodDistanceGoalMessage">→ photograph the coastline in order to better apprehend its evolution as photos are sent</string>
+    <string name="methodDistanceHowTitle">How to take the mesure?</string>
+    <string name="methodDistanceHowMessage">→ tools : camera</string>
+    <string name="methodDistanceWhenTitle">When to do this task?</string>
+    <string name="methodDistanceWhenMessage">→ duration : 5 minutes\n→ to do as the tide is low</string>
+    <string name="methodDistance2">- Photo desired:</string>
+    <string name="methodDistance3">- Advised position to take the photo:</string>
+    <string name="methodDistance4">In order to better apprehend fast evolution\n due to storms, it\'s also relevant to take \nphotos post-event.</string>
 
-    <string name="methodClue1">Indice 1:</string>
-    <string name="methodClue2">Indice 2:</string>
-    <string name="methodClue3">Indice 3:</string>
+    <string name="methodClue1">Clue 1:</string>
+    <string name="methodClue2">Clue 2:</string>
+    <string name="methodClue3">Clue 3:</string>
 
-    <string name="notImplemented">A implémenter</string>
+    <string name="notImplemented">Not yet implemented</string>
 
     <string name="information">Information</string>
 
-    <string name="traceTitle">Voici les dernières mesures renseignées dans ce lieu</string>
-    <string name="indicatorsErosionTitle">Voici les différentes mesures d\'érosion pouvant\nêtre prises dans ce lieu</string>
-    <string name="indicatorsSubmersionTitle">Voici les différentes mesures de submersion pouvant\nêtre prises dans ce lieu</string>
+    <string name="traceTitle">Here are the last measures taken in this location</string>
+    <string name="indicatorsErosionTitle">Here are the different erosion mesures that \ncan be taken in this location</string>
+    <string name="indicatorsSubmersionTitle">Here are the different submersion mesures that \ncan be taken in this location</string>
+
+    <string name="cameraIcon">The camera is needed</string>
+    <string name="locationIcon">Localisation is needed</string>
+    <string name="meterIcon">A 5 metre meter is required</string>
+    <string name="bronzeMedalIcon">Easy level</string>
+    <string name="silverMedalIcon">Intermediate level</string>
+    <string name="goldMedalIcon">Difficult level</string>
+    <string name="questionIconPhotoCapture">Goal : photograph the coastline in order to \nbetter apprehend its evolution as photos are sent\n\nDuration : 5 minutes</string>
+
 
 </resources>

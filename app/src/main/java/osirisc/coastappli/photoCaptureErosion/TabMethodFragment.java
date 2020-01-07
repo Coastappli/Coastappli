@@ -1,4 +1,4 @@
-package osirisc.coastappli.method;
+package osirisc.coastappli.photoCaptureErosion;
 
 import android.app.AlertDialog;
 import android.graphics.Bitmap;
@@ -19,7 +19,7 @@ import com.github.chrisbanes.photoview.PhotoView;
 
 import osirisc.coastappli.Database.DatabaseAssistant;
 import osirisc.coastappli.Database.MethodErosionDistance;
-import osirisc.coastappli.MethodMainActivity;
+import osirisc.coastappli.PhotoCaptureErosionMainActivity;
 import osirisc.coastappli.R;
 
 public class TabMethodFragment extends Fragment {
@@ -29,9 +29,9 @@ public class TabMethodFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.tab_method, container, false);
+        View root = inflater.inflate(R.layout.tab_method_photo_capture_erosion, container, false);
         DatabaseAssistant databaseAssistant = new DatabaseAssistant(getActivity());
-        method = databaseAssistant.findMethodErosionDistance(((MethodMainActivity)getActivity()).getMarkerLatitude(), ((MethodMainActivity)getActivity()).getMarkerLongitude());
+        method = databaseAssistant.findMethodErosionDistance(((PhotoCaptureErosionMainActivity)getActivity()).getMarkerLatitude(), ((PhotoCaptureErosionMainActivity)getActivity()).getMarkerLongitude());
         if (method!=null) {
             TextView textViewMethodFillClue1 = root.findViewById(R.id.textViewMethodFillClue1);
             TextView textViewMethodFillClue2 = root.findViewById(R.id.textViewMethodFillClue2);

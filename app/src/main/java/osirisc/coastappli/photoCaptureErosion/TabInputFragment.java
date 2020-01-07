@@ -1,4 +1,4 @@
-package osirisc.coastappli.method;
+package osirisc.coastappli.photoCaptureErosion;
 
 
 import android.app.AlertDialog;
@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.github.chrisbanes.photoview.PhotoView;
 
-import osirisc.coastappli.MethodMainActivity;
+import osirisc.coastappli.PhotoCaptureErosionMainActivity;
 import osirisc.coastappli.R;
 
 public class TabInputFragment extends Fragment {
@@ -23,7 +23,7 @@ public class TabInputFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.tab_input, container, false);
+        View root = inflater.inflate(R.layout.tab_input_photo_capture_erosion, container, false);
         ImageView imageViewPhoto = root.findViewById(R.id.imageViewPhoto);
         // set a onclick listener for when the button gets clicked
         imageViewPhoto.setOnClickListener(new View.OnClickListener() {
@@ -32,7 +32,7 @@ public class TabInputFragment extends Fragment {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
                 View mView = getLayoutInflater().inflate(R.layout.fullscreen, null);
                 PhotoView photoView = mView.findViewById(R.id.photo_view);
-                photoView.setImageBitmap(((MethodMainActivity)getActivity()).getImageBitmap());
+                photoView.setImageBitmap(((PhotoCaptureErosionMainActivity)getActivity()).getImageBitmap());
                 mBuilder.setView(mView);
                 AlertDialog mDialog = mBuilder.create();
                 mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

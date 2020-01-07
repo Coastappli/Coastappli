@@ -55,7 +55,9 @@ import static com.mapbox.mapboxsdk.style.expressions.Expression.step;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.stop;
 import static com.mapbox.mapboxsdk.style.expressions.Expression.zoom;
 
-
+/**
+ *
+ */
 public class MainActivity extends AppCompatActivity implements PermissionsListener,MapboxMap.OnMapClickListener {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -213,7 +215,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
 
     @Override
     public void onExplanationNeeded(List<String> permissionsToExplain) {
-        Toast.makeText(this, R.string.user_location_permission_explanation, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, R.string.user_localisation_permission_explanation, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -226,7 +228,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                 }
             });
         } else {
-            Toast.makeText(this, R.string.user_location_permission_not_granted, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.user_localisation_permission_not_granted, Toast.LENGTH_LONG).show();
             finish();
         }
     }
@@ -258,7 +260,7 @@ public class MainActivity extends AppCompatActivity implements PermissionsListen
                 buttonInformation.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v)
                     {
-                        Intent myIntent= new Intent(MainActivity.this, PlaceMainActivity.class);
+                        Intent myIntent= new Intent(MainActivity.this, LocationMainActivity.class);
                         myIntent.putExtra("markerLatitude", marker.getLatitude());
                         myIntent.putExtra("markerLongitude", marker.getLongitude());
                         myIntent.putExtra("nameBeach", marker.getNameBeach());

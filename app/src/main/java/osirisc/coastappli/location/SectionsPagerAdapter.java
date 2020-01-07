@@ -1,4 +1,4 @@
-package osirisc.coastappli.method;
+package osirisc.coastappli.location;
 
 import android.content.Context;
 
@@ -14,13 +14,13 @@ import osirisc.coastappli.R;
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
-public class SectionsPagerAdapterMethod extends FragmentPagerAdapter {
+public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_method_name, R.string.tab_input_name}; //en mettre autant que le nombre de pages voulues
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_information_name, R.string.tab_indicators_name, R.string.tab_trace_name}; //en mettre autant que le nombre de pages voulues
     private final Context mContext;
 
-    public SectionsPagerAdapterMethod(Context context, FragmentManager fm) {
+    public SectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
     }
@@ -29,9 +29,11 @@ public class SectionsPagerAdapterMethod extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new TabMethodFragment();
+                return new TabInformationFragment();
             case 1:
-                return new TabInputFragment();
+                return new TabIndicatorsFragment();
+            case 2:
+                return new TabTraceFragment();
             default:
                 return null;
         }
@@ -46,6 +48,6 @@ public class SectionsPagerAdapterMethod extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 3 total pages.
-        return 2; //Défini le nombre de pages du tabbed activity
+        return 3; //Défini le nombre de pages du tabbed activity
     }
 }

@@ -1,4 +1,4 @@
-package osirisc.coastappli.place;
+package osirisc.coastappli.location;
 
 import android.app.AlertDialog;
 import android.graphics.Bitmap;
@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import com.github.chrisbanes.photoview.PhotoView;
 
-import osirisc.coastappli.PlaceMainActivity;
+import osirisc.coastappli.LocationMainActivity;
 import osirisc.coastappli.R;
 
 public class TabInformationFragment extends Fragment {
@@ -29,11 +29,11 @@ public class TabInformationFragment extends Fragment {
         TextView textViewNamePlace = root.findViewById(R.id.textViewNamePlace);
         TextView textViewCoastType = root.findViewById(R.id.textViewCoastType);
         TextView textViewINEC = root.findViewById(R.id.textViewINEC);
-        textViewNamePlace.setText(((PlaceMainActivity)getActivity()).getNameBeach()+"\n"+((PlaceMainActivity)getActivity()).getNameTown());
-        textViewCoastType.setText(((PlaceMainActivity)getActivity()).getCoastType());
-        textViewINEC.setText(((PlaceMainActivity)getActivity()).getINEC());
+        textViewNamePlace.setText(((LocationMainActivity)getActivity()).getNameBeach()+"\n"+((LocationMainActivity)getActivity()).getNameTown());
+        textViewCoastType.setText(((LocationMainActivity)getActivity()).getCoastType());
+        textViewINEC.setText(((LocationMainActivity)getActivity()).getINEC());
         ImageView imageViewPlace = root.findViewById(R.id.imageViewPlace);
-        Bitmap bm = BitmapFactory.decodeByteArray(((PlaceMainActivity)getActivity()).getPhoto(), 0,((PlaceMainActivity)getActivity()).getPhoto().length);
+        Bitmap bm = BitmapFactory.decodeByteArray(((LocationMainActivity)getActivity()).getPhoto(), 0,((LocationMainActivity)getActivity()).getPhoto().length);
         imageViewPlace.setImageBitmap(bm);
         return root;
     }
@@ -49,7 +49,7 @@ public class TabInformationFragment extends Fragment {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
                 View mView = getLayoutInflater().inflate(R.layout.fullscreen, null);
                 PhotoView photoView = mView.findViewById(R.id.photo_view);
-                Bitmap bm = BitmapFactory.decodeByteArray(((PlaceMainActivity)getActivity()).getPhoto(), 0,((PlaceMainActivity)getActivity()).getPhoto().length);
+                Bitmap bm = BitmapFactory.decodeByteArray(((LocationMainActivity)getActivity()).getPhoto(), 0,((LocationMainActivity)getActivity()).getPhoto().length);
                 photoView.setImageBitmap(bm);
                 mBuilder.setView(mView);
                 AlertDialog mDialog = mBuilder.create();

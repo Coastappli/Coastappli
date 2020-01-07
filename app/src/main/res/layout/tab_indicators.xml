@@ -83,7 +83,7 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
-                    android:onClick="onClickGreenCircleIcon"
+                    android:onClick="onClickBronzeMedalIcon"
                     app:srcCompat="@drawable/ic_green_circle" />
 
                 <Button
@@ -93,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/button_indicators_background"
-                    android:onClick="distanceFunction"
+                    android:onClick="PhotoCaptureFunction"
                     android:text="@string/photo"
                     android:textColor="@color/colorPrimary" />
 
@@ -102,7 +102,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:onClick="onClickQuestionIconPhoto"
+                    android:onClick="onClickQuestionIconPhotoCapture"
                     app:srcCompat="@drawable/ic_question" />
 
             </LinearLayout>
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:onClick="onClickPhotoIcon"
+                android:onClick="onClickCameraIcon"
                 app:srcCompat="@drawable/ic_camera" />
 
             <LinearLayout
@@ -131,7 +131,7 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
-                    android:onClick="onClickYellowCircleIcon"
+                    android:onClick="onClickSilverMedalIcon"
                     app:srcCompat="@drawable/ic_yellow_circle" />
 
                 <Button
@@ -178,7 +178,7 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
-                    android:onClick="onClickRedCircleIcon"
+                    android:onClick="onClickGoldMedalIcon"
                     app:srcCompat="@drawable/ic_red_circle" />
 
                 <Button
@@ -252,7 +252,7 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
-                    android:onClick="onClickGreenCircleIcon"
+                    android:onClick="onClickBronzeMedalIcon"
                     app:srcCompat="@drawable/ic_green_circle" />
 
                 <Button
@@ -281,7 +281,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:onClick="onClickPhotoIcon"
+                android:onClick="onClickCameraIcon"
                 app:srcCompat="@drawable/ic_camera" />
 
             <LinearLayout
@@ -299,7 +299,7 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
-                    android:onClick="onClickYellowCircleIcon"
+                    android:onClick="onClickSilverMedalIcon"
                     app:srcCompat="@drawable/ic_yellow_circle" />
 
                 <Button
@@ -346,7 +346,7 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
-                    android:onClick="onClickRedCircleIcon"
+                    android:onClick="onClickGoldMedalIcon"
                     app:srcCompat="@drawable/ic_red_circle" />
 
                 <Button
