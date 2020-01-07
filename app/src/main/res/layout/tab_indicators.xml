@@ -87,15 +87,15 @@
                     app:srcCompat="@drawable/ic_green_circle" />
 
                 <Button
-                    android:id="@+id/distanceButton"
+                    android:id="@+id/erosionPhotoCaptureButton"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/button_indicators_background"
-                    android:onClick="PhotoCaptureFunction"
                     android:text="@string/photo"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimary"
+                    android:onClick="PhotoCaptureFunction"/>
 
                 <ImageView
                     android:id="@+id/imageViewQuestionIcon1"

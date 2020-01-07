@@ -57,7 +57,7 @@ public class TabIndicatorsFragment extends Fragment {
             }
         });
         if (((LocationMainActivity)getActivity()).getErosionPhotoCaptureBool()== 0){
-            Button distanceButton = root.findViewById(R.id.distanceButton);
+            Button distanceButton = root.findViewById(R.id.erosionPhotoCaptureButton);
             distanceButton.setVisibility(GONE);
         }
         return root;

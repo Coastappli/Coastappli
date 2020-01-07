@@ -45,7 +45,7 @@ public class PhotoCaptureErosionMainActivity extends AppCompatActivity {
     private String nameTown;
     private String coastType;
     private String INEC;
-    private int erosionDistanceMesureBool;
+    private int erosionPhotoCaptureBool;
 
     private Bitmap bitmap;
     private String currentPhotoPath;
@@ -71,7 +71,7 @@ public class PhotoCaptureErosionMainActivity extends AppCompatActivity {
             nameTown = extras.getString("nameTown");
             coastType = extras.getString("coastType");
             INEC = extras.getString("INEC");
-            erosionDistanceMesureBool = extras.getInt("erosionDistanceMesureBool");
+            erosionPhotoCaptureBool = extras.getInt("erosionPhotoCaptureBool");
         }
     }
 
@@ -211,7 +211,7 @@ public class PhotoCaptureErosionMainActivity extends AppCompatActivity {
         myPlaceIntent.putExtra("nameTown", nameTown);
         myPlaceIntent.putExtra("coastType", coastType);
         myPlaceIntent.putExtra("INEC", INEC);
-        myPlaceIntent.putExtra("erosionDistanceMesureBool", erosionDistanceMesureBool);
+        myPlaceIntent.putExtra("erosionPhotoCaptureBool", erosionPhotoCaptureBool);
         PhotoCaptureErosionMainActivity.this.startActivity(myPlaceIntent);
 
         // The photo stored in the device is then deleted is it's not useful anymore

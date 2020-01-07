@@ -50,7 +50,8 @@
     <string name="mesureSubmersion3">Mesure Submersion 3</string>
 
     <string name="user">User :</string>
-    <string name="mesure">Notes :</string>
+    <string name="mesure">Mesure :</string>
+    <string name="notes">Notes :</string>
 
     <string name="erosionDistance">Constrained and qualitative photo capture </string>
     <string name="erosionSurface">Not yet implemented</string>
