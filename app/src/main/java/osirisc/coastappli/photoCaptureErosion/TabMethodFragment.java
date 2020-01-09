@@ -44,6 +44,7 @@ public class TabMethodFragment extends Fragment {
         // We retrieve the marker's latitude and longitude from the PhotoCaptureErosionMainActivity in order to find the method for this marker
         method = databaseAssistant.findMethodPhotoCaptureErosion(((PhotoCaptureErosionMainActivity)getActivity()).getMarkerLatitude(), ((PhotoCaptureErosionMainActivity)getActivity()).getMarkerLongitude());
         if (method!=null) {
+            // We fill the layout
             TextView textViewMethodFillClue1 = root.findViewById(R.id.textViewMethodFillClue1);
             TextView textViewMethodFillClue2 = root.findViewById(R.id.textViewMethodFillClue2);
             TextView textViewMethodFillClue3 = root.findViewById(R.id.textViewMethodFillClue3);
@@ -67,11 +68,14 @@ public class TabMethodFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         // We retrieve the first image view
         final ImageView imageViewMethodPhoto = getView().findViewById(R.id.imageViewMethodPhoto);
+
         // We set a onclick listener for when the image gets clicked
         imageViewMethodPhoto.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
                 // We create an AlertDialog.Builder
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
 

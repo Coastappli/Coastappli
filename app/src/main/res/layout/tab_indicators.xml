@@ -69,6 +69,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
+                android:id="@+id/erosionPhotoCaptureLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
@@ -84,7 +85,7 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
                     android:onClick="onClickBronzeMedalIcon"
-                    app:srcCompat="@drawable/ic_green_circle" />
+                    app:srcCompat="@drawable/ic_bronze_medal" />
 
                 <Button
                     android:id="@+id/erosionPhotoCaptureButton"
@@ -132,7 +133,7 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
                     android:onClick="onClickSilverMedalIcon"
-                    app:srcCompat="@drawable/ic_yellow_circle" />
+                    app:srcCompat="@drawable/ic_silver_medal" />
 
                 <Button
                     android:id="@+id/mesure_erosion_2"
@@ -179,7 +180,7 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
                     android:onClick="onClickGoldMedalIcon"
-                    app:srcCompat="@drawable/ic_red_circle" />
+                    app:srcCompat="@drawable/ic_gold_medal" />
 
                 <Button
                     android:id="@+id/mesure_erosion_3"
@@ -253,7 +254,7 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
                     android:onClick="onClickBronzeMedalIcon"
-                    app:srcCompat="@drawable/ic_green_circle" />
+                    app:srcCompat="@drawable/ic_bronze_medal" />
 
                 <Button
                     android:id="@+id/mesure_submersion_1"
@@ -300,7 +301,7 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
                     android:onClick="onClickSilverMedalIcon"
-                    app:srcCompat="@drawable/ic_yellow_circle" />
+                    app:srcCompat="@drawable/ic_silver_medal" />
 
                 <Button
                     android:id="@+id/mesure_submersion_2"
@@ -347,7 +348,7 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
                     android:onClick="onClickGoldMedalIcon"
-                    app:srcCompat="@drawable/ic_red_circle" />
+                    app:srcCompat="@drawable/ic_gold_medal" />
 
                 <Button
                     android:id="@+id/mesure_submersion_3"
