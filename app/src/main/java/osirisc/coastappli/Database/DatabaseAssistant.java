@@ -259,7 +259,7 @@ public class DatabaseAssistant extends SQLiteOpenHelper {
         db.insert("MethodErosionPhotoCapture", null, values);
     }
 
-    public MethodErosionPhotoCapture findMethodErosionDistance(double latitude, double longitude){
+    public MethodErosionPhotoCapture findMethodPhotoCaptureErosion(double latitude, double longitude){
         String query = "Select*FROM MethodErosionDistance WHERE markerLatitude =" + "'" + latitude +  "'" + "AND markerLongitude =" + "'" + longitude +  "' ORDER BY _id DESC";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);

@@ -16,10 +16,12 @@ import android.view.View;
 
 import osirisc.coastappli.Database.DatabaseAssistant;
 import osirisc.coastappli.Database.Marker;
-import osirisc.coastappli.location.SectionsPagerAdapter;
+import osirisc.coastappli.location.SectionsPagerAdapterLocation;
 
 /**
  * Activity launched when a marker is clicked on from the map
+ * It's the activity in which a user can find all the information about a marker,
+ * what indicator is available and when was the last time measures were taken
  */
 public class LocationMainActivity extends AppCompatActivity {
 
@@ -42,9 +44,9 @@ public class LocationMainActivity extends AppCompatActivity {
         // We first create the activity with it's 3 tabs
         super.onCreate(savedInstanceState);
         setContentView(R.layout.location_main_activity);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        SectionsPagerAdapterLocation sectionsPagerAdapterLocation = new SectionsPagerAdapterLocation(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
-        viewPager.setAdapter(sectionsPagerAdapter);
+        viewPager.setAdapter(sectionsPagerAdapterLocation);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 

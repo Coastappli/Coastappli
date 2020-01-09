@@ -29,12 +29,13 @@ import java.util.Locale;
 
 import osirisc.coastappli.Database.DatabaseAssistant;
 import osirisc.coastappli.Database.MeasureErosionPhotoCapture;
-import osirisc.coastappli.photoCaptureErosion.SectionsPagerAdapterMethod;
+import osirisc.coastappli.photoCaptureErosion.SectionsPagerAdapterPhotoCaptureErosion;
 
 import static android.view.View.VISIBLE;
 
 /**
  * Activity launched when to erosion photo capture button in the indicators' fragment is clicked on
+ * It's the activity in which the user can find information about how to take the photo and send it
  */
 public class PhotoCaptureErosionMainActivity extends AppCompatActivity {
 
@@ -55,9 +56,9 @@ public class PhotoCaptureErosionMainActivity extends AppCompatActivity {
         // We first create the activity with it's 2 tabs
         super.onCreate(savedInstanceState);
         setContentView(R.layout.photo_capture_erosion_main_activity);
-        SectionsPagerAdapterMethod sectionsPagerAdapterMethod = new SectionsPagerAdapterMethod(this, getSupportFragmentManager());
+        SectionsPagerAdapterPhotoCaptureErosion sectionsPagerAdapterPhotoCaptureErosion = new SectionsPagerAdapterPhotoCaptureErosion(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager_photo_capture_erosion);
-        viewPager.setAdapter(sectionsPagerAdapterMethod);
+        viewPager.setAdapter(sectionsPagerAdapterPhotoCaptureErosion);
         TabLayout tabs = findViewById(R.id.tabs_photo_capture_erosion);
         tabs.setupWithViewPager(viewPager);
 

@@ -54,7 +54,7 @@ import static com.mapbox.mapboxsdk.style.expressions.Expression.literal;
 
 /**
  *  This is the main activity launched at the start of the app
- *  It launches the map and has all the functions witch interact with it
+ *  It launches the map and has all the functions which interact with it
  */
 public class MainActivity extends AppCompatActivity implements PermissionsListener,MapboxMap.OnMapClickListener {
 
