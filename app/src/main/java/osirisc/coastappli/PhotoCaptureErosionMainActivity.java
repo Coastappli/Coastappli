@@ -199,7 +199,7 @@ public class PhotoCaptureErosionMainActivity extends AppCompatActivity {
 
         // We push the ne measure in the database
         DatabaseAssistant databaseAssistant = new DatabaseAssistant(this);
-        databaseAssistant.addMesureErosionDistance(mesure);
+        databaseAssistant.addMeasureErosionDistance(mesure);
 
         // We then finish this activity and reload (finish and restart) the previous LocationMainActivity in order to update it with the new data
         PhotoCaptureErosionMainActivity.this.finish();

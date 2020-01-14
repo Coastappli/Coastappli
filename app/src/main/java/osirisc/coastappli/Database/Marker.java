@@ -26,7 +26,10 @@ public class Marker {
     private String nameTown = "Town name not provided";
     private String coastType = "Coast Type not provided";
     private String INEC = "INEC not provided";
-    private int erosionDistanceMesure = 1;
+
+    // This attribute is an int equal to 0 or 1. If equal to 1, the marker uses the measure of the photo capture for the erosion.
+    // If equal to 0; it doesn't use it. Perhaps a better system could be implemented.
+    private int erosionMeasurePhotoCapture = 1;
     private byte[] photo;
 
     public Marker() {}
@@ -39,16 +42,16 @@ public class Marker {
      * @param nameTown
      * @param coastType
      * @param INEC
-     * @param erosionDistanceMesure
+     * @param erosionMeasurePhotoCapture
      */
 
-    public Marker(double latitude, double longitude, String nameBeach, String nameTown, String coastType, String INEC, int erosionDistanceMesure) {
+    public Marker(double latitude, double longitude, String nameBeach, String nameTown, String coastType, String INEC, int erosionMeasurePhotoCapture) {
         this.longitude = longitude;
         this.latitude = latitude;
         this.nameBeach = nameBeach;
         this.nameTown = nameTown;
         this.coastType = coastType;
-        this.erosionDistanceMesure = erosionDistanceMesure;
+        this.erosionMeasurePhotoCapture = erosionMeasurePhotoCapture;
         this.INEC = INEC;
         //As we don't have an image to illustrate, we put a default picture
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -65,17 +68,17 @@ public class Marker {
      * @param nameTown
      * @param coastType
      * @param INEC
-     * @param erosionDistanceMesure
+     * @param erosionMeasurePhotoCapture
      * @param photo
      */
 
-    public Marker(double latitude, double longitude, String nameBeach, String nameTown, String coastType, String INEC, int erosionDistanceMesure, byte[] photo) {
+    public Marker(double latitude, double longitude, String nameBeach, String nameTown, String coastType, String INEC, int erosionMeasurePhotoCapture, byte[] photo) {
         this.longitude = longitude;
         this.latitude = latitude;
         this.nameBeach = nameBeach;
         this.nameTown = nameTown;
         this.coastType = coastType;
-        this.erosionDistanceMesure = erosionDistanceMesure;
+        this.erosionMeasurePhotoCapture = erosionMeasurePhotoCapture;
         this.INEC = INEC;
         this.photo = photo;
     }
@@ -91,9 +94,9 @@ public class Marker {
 
     public String getINEC() { return INEC; }
 
-    public int getErosionDistanceMesureBool() { return erosionDistanceMesure; }
+    public int getErosionDistanceMesureBool() { return erosionMeasurePhotoCapture; }
 
-    public void setErosionDistanceMesure(int erosionDistanceMesure) { this.erosionDistanceMesure = erosionDistanceMesure; }
+    public void setErosionMeasurePhotoCapture(int erosionMeasurePhotoCapture) { this.erosionMeasurePhotoCapture = erosionMeasurePhotoCapture; }
 
     public void setINEC(String INEC) { this.INEC = INEC; }
 

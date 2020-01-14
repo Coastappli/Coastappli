@@ -40,7 +40,7 @@ public class TabTraceFragment extends Fragment {
         // with to correct pictures and text from this marker's method
         DatabaseAssistant databaseAssistant = new DatabaseAssistant(getActivity());
         // We retrieve the marker's latitude and longitude from the PhotoCaptureErosionMainActivity in order to find the method for this marker
-        measureErosionPhotoCapture = databaseAssistant.findMesureErosionDistance(((LocationMainActivity)getActivity()).getMarkerLatitude(), ((LocationMainActivity)getActivity()).getMarkerLongitude());
+        measureErosionPhotoCapture = databaseAssistant.findMeasureErosionDistance(((LocationMainActivity)getActivity()).getMarkerLatitude(), ((LocationMainActivity)getActivity()).getMarkerLongitude());
         if (measureErosionPhotoCapture !=null) {
             // We fill the layout
             TextView textViewDateFill = root.findViewById(R.id.textViewDateFill);

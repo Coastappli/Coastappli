@@ -1,7 +1,7 @@
 package osirisc.coastappli.Database;
 
 /**
- * This class defines the Measure objects, that represent every measure stored on the app
+ * This abstract class defines the Measure objects, that represent every measure stored on the app
  */
 
 public abstract class Measure {
