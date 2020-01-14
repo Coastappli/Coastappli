@@ -11,8 +11,15 @@ import osirisc.coastappli.R;
 
 import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
 
+/**
+ * This class defines the Marker objects, that represent every location at which a indicator can be measured
+ */
+
 public class Marker {
 
+    /**
+     * Markers have a set of attributes :
+     */
     private double longitude;
     private double latitude;
     private String nameBeach;
@@ -24,7 +31,16 @@ public class Marker {
 
     public Marker() {}
 
-
+    /**
+     * This function is a constructor used if we don't have a picture to assign to the marker
+     * @param latitude
+     * @param longitude
+     * @param nameBeach
+     * @param nameTown
+     * @param coastType
+     * @param INEC
+     * @param erosionDistanceMesure
+     */
 
     public Marker(double latitude, double longitude, String nameBeach, String nameTown, String coastType, String INEC, int erosionDistanceMesure) {
         this.longitude = longitude;
@@ -34,11 +50,24 @@ public class Marker {
         this.coastType = coastType;
         this.erosionDistanceMesure = erosionDistanceMesure;
         this.INEC = INEC;
+        //As we don't have an image to illustrate, we put a default picture
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         ((BitmapDrawable) ContextCompat.getDrawable(getApplicationContext(), R.mipmap.ic_launcher_coast)).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
         this.photo = byteArray;
     }
+
+    /**
+     * This constructor is used if there's an precise image to illsutrate the marker
+     * @param latitude
+     * @param longitude
+     * @param nameBeach
+     * @param nameTown
+     * @param coastType
+     * @param INEC
+     * @param erosionDistanceMesure
+     * @param photo
+     */
 
     public Marker(double latitude, double longitude, String nameBeach, String nameTown, String coastType, String INEC, int erosionDistanceMesure, byte[] photo) {
         this.longitude = longitude;
@@ -50,6 +79,11 @@ public class Marker {
         this.INEC = INEC;
         this.photo = photo;
     }
+
+    /**
+     * The following functions are all the getters and setters for every single attribute of a Marker object
+     * @return
+     */
 
     public String getNameTown() { return nameTown; }
 

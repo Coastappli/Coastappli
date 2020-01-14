@@ -1,6 +1,14 @@
 package osirisc.coastappli.Database;
 
+/**
+ * This class defines the Measure objects, that represent every measure stored on the app
+ */
+
 public abstract class Measure {
+
+    /**
+     * Measures have a set of attributes :
+     */
 
     private Double markerLatitude;
     private Double markerLongitude;
@@ -9,8 +17,17 @@ public abstract class Measure {
     private String user;
     private String notes;
 
+    /**
+     * Constructor of the class
+     */
+
     public Measure() {
     }
+
+    /**
+     * The following functions are all the getters and setters for every single attribute of a Measure object
+     * @return
+     */
 
     public Double getMarkerLatitude() {
         return markerLatitude;

@@ -4,7 +4,12 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class BadgesViewModel extends ViewModel {
+/**
+ * This activity manages the data related to the bagdes user interface.
+ * At the moment, it only sets ans stores the default text that appears when the badges interface is open.
+ */
+
+public class  BadgesViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 

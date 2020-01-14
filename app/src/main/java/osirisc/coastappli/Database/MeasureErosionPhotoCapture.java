@@ -1,5 +1,10 @@
 package osirisc.coastappli.Database;
 
+/**
+ * This class defines the MesureErosionPhotoCapture objects
+ * They are the pictures included in the measure of ErosionDistance indicator
+ */
+
 public class MeasureErosionPhotoCapture extends Measure {
     private byte[] photo;
 

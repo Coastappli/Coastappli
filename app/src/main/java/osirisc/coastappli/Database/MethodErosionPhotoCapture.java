@@ -1,5 +1,9 @@
 package osirisc.coastappli.Database;
 
+/**
+ * This class defines the MethodErosionPhotoCapture objects, that store the necessary information for every measurement protocol
+ */
+
 public class MethodErosionPhotoCapture {
 
     private Double markerLatitude;
@@ -9,6 +13,10 @@ public class MethodErosionPhotoCapture {
     private String clue1;
     private String clue2;
     private String clue3;
+
+    /**
+     * We have the 2 following constructors :
+     */
 
     public MethodErosionPhotoCapture(){}
 
@@ -21,6 +29,11 @@ public class MethodErosionPhotoCapture {
         this.clue2 = clue2;
         this.clue3 = clue3;
     }
+
+    /**
+     * The following functions are all the getters and setters for every single attribute of a MethodErosionPhotoCapture object
+     * @return
+     */
 
     public Double getMarkerLatitude() {
         return markerLatitude;

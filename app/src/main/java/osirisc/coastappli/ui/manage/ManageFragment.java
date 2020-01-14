@@ -14,6 +14,12 @@ import androidx.lifecycle.ViewModelProviders;
 
 import osirisc.coastappli.R;
 
+/**
+ * This activity allows the implementation of the app settings interface.
+ * It launches the settings fragment when clicked in the navigation controller.
+ */
+
+
 public class ManageFragment extends Fragment {
 
     private ManageViewModel manageViewModel;

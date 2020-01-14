@@ -4,6 +4,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+/**
+ * This activity manages the data related to the history user interface.
+ * At the moment, it only sets ans stores the default text that appears when the history interface is open.
+ */
+
 public class HistoryViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;

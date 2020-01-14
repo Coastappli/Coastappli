@@ -14,6 +14,12 @@ import androidx.lifecycle.ViewModelProviders;
 
 import osirisc.coastappli.R;
 
+/**
+ * This activity allows the implementation of the profile settings function.
+ * It launches the fragment when clicked in the navigation controller.
+ */
+
+
 public class ProfileFragment extends Fragment {
 
     private ProfileViewModel profileViewModel;

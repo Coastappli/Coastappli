@@ -14,6 +14,11 @@ import androidx.lifecycle.ViewModelProviders;
 
 import osirisc.coastappli.R;
 
+/**
+ * This activity allows the implementation of the log-out function.
+ * It launches the log-out fragment when clicked in the navigation controller.
+ */
+
 public class LogOutFragment extends Fragment {
 
     private LogOutViewModel logOutViewModel;
